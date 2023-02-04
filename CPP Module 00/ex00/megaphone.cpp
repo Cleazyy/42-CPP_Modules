@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:34:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/02/03 20:17:30 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/02/04 08:48:16 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	to_upper(char *str)
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-		std::cerr << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	{
+		std::cerr << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return 1;
+	}
 	for (int i = 1; av[i]; i++)
 	{
 		to_upper(av[i]);
