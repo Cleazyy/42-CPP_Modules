@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 18:34:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/02/25 20:17:55 by fluchten         ###   ########.fr       */
+/*   Created: 2023/02/25 20:08:54 by fluchten          #+#    #+#             */
+/*   Updated: 2023/02/25 20:18:29 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "phonebook.hpp"
 
-void	to_upper(char *str)
+int	main(void)
 {
-	for (int i = 0; str[i]; i++)
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] -= 32;
-	}
-}
+	std::string	cmd;
 
-int	main(int ac, char **av)
-{
-	if (ac < 2)
+	std::cout << "Salut mek!" << std::endl;
+	while (1)
 	{
-		std::cerr << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
+		if (cmd == "EXIT")
+			break;
 	}
-	for (int i = 1; av[i]; i++)
-	{
-		to_upper(av[i]);
-		std::cout << av[i];
-	}
-	std::cout << std::endl;
 	return 0;
 }
