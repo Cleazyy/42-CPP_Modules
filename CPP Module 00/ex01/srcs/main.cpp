@@ -16,11 +16,16 @@ int	main(void)
 {
 	std::string	cmd;
 
-	std::cout << "Salut mek!" << std::endl;
 	while (1)
 	{
+		std::cout << "PhoneBook: ";
+		std::getline(std::cin, cmd);
+		if (cmd == "ADD")
+			break;
+		if (cmd == "SEARCH")
+			break;
 		if (cmd == "EXIT")
 			break;
 	}
-	return 0;
+	return (0);
 }
