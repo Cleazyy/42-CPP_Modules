@@ -12,7 +12,13 @@
 
 #include <iostream>
 
-void	to_upper(char *str)
+static int	print_error(const char *str)
+{
+	std::cerr << str << std::endl;
+	return (1);
+}
+
+static void	to_upper(char *str)
 {
 	for (int i = 0; str[i]; i++)
 	{
@@ -24,15 +30,12 @@ void	to_upper(char *str)
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-	{
-		std::cerr << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return 1;
-	}
+		return (print_error("* LOUD AND UNBEARABLE FEEDBACK NOISE *"));
 	for (int i = 1; av[i]; i++)
 	{
 		to_upper(av[i]);
 		std::cout << av[i];
 	}
 	std::cout << std::endl;
-	return 0;
+	return (0);
 }
