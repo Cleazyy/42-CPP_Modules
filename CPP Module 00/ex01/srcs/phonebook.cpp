@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 20:17:27 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/09 22:31:07 by fluchten         ###   ########.fr       */
+/*   Created: 2023/03/09 19:12:02 by fluchten          #+#    #+#             */
+/*   Updated: 2023/03/09 22:16:58 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "phonebook.hpp"
 
-# include <iostream>
-# include "contact.hpp"
-
-# define MSG_PHONEBOOK "\033[1;36mPhoneBook: \033[0m"
-
-class PhoneBook
+PhoneBook::PhoneBook(void)
 {
-	private:
-	Contact	_contact[8];
+	return ;
+}
 
-	public :
-	PhoneBook(void);
-	~PhoneBook(void);
+PhoneBook::~PhoneBook(void)
+{
+	return ;
+}
 
-	void	addContact(void);
-	void	searchContact(void);
-};
+void	PhoneBook::addContact(void)
+{
+	static int	i = 0;
 
-#endif
+	_contact[i].getSettings();
+	i++;
+	if (i == 8)
+		i = 0;
+}
+
+void	PhoneBook::searchContact(void)
+{
+	_contact->printHeaderPhoneBook();
+	for (int i = 1; i <= 8; i++)
+		_contact[i].printPhoneBook(i);
+}
