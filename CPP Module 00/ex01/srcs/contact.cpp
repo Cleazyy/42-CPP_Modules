@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/09 22:31:05 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:36:59 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	Contact::printHeaderPhoneBook(void)
 	std::cout << MSG_SEPARTOR << std::endl;
 	std::cout << "|" << std::setw(10) << "INDEX";
 	std::cout << "|" << std::setw(10) << "FIRST NAME";
-    std::cout << "|" << std::setw(10) << "LAST NAME";
-    std::cout << "|" << std::setw(10) << "NICKNAME";
-    std::cout << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << "LAST NAME";
+	std::cout << "|" << std::setw(10) << "NICKNAME";
+	std::cout << "|" << std::endl;
 	std::cout << MSG_SEPARTOR << std::endl;
 }
 
@@ -51,8 +51,8 @@ void	Contact::printPhoneBook(int index)
 {
 	std::cout << "|" << std::setw(10) << index;
 	std::cout << "|" << std::setw(10) << "Quentin";
-    std::cout << "|" << std::setw(10) << "Fernendez";
-    std::cout << "|" << std::setw(10) << "Cleazyy";
-    std::cout << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << "Fernendez";
+	std::cout << "|" << std::setw(10) << "Cleazyy";
+	std::cout << "|" << std::endl;
 	std::cout << MSG_SEPARTOR << std::endl;
 }
