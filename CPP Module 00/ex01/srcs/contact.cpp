@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/10 20:27:00 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:30:14 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ Contact::~Contact(void)
 void	Contact::_init(void)
 {
 	_firstName = "";
-    _lastName = "";
-    _nickName = "";
-    _phoneNumber = "";
-    _darkestSecret = "";
+	_lastName = "";
+	_nickName = "";
+	_phoneNumber = "";
+	_darkestSecret = "";
 }
 
 bool		Contact::_isPhoneNumber(std::string phoneNumber)
