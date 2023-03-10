@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/09 22:36:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:39:15 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,84 @@ Contact::~Contact(void)
 	return ;
 }
 
+void	Contact::_init(void)
+{
+	_firstName = "";
+    _lastName = "";
+    _nickName = "";
+    _phoneNumber = "";
+    _darkestSecret = "";
+}
+
+std::string	Contact::_resizeString(std::string str)
+{
+	std::string res;
+
+	if (str.empty())
+		res = "(null)";
+	else if (str.length() <= 10)
+		res = str;
+	else if (str.length() > 10)
+	{
+		res = str.substr(0, 9);
+		res.replace(9, 1, ".");
+	}
+	return (res);
+}
+
 void	Contact::getSettings(void)
 {
-	std::cout << MSG_CONTACT << "First name: ";
-	std::getline(std::cin, _firstName);
-	std::cout << MSG_CONTACT << "Last name: ";
-	std::getline(std::cin, _lastName);
-	std::cout << MSG_CONTACT << "Nickname: ";
-	std::getline(std::cin, _nickName);
-	std::cout << MSG_CONTACT << "Phone number: ";
-	std::getline(std::cin, _phoneNumber);
-	std::cout << MSG_CONTACT << "Darkest secret: ";
-	std::getline(std::cin, _darkestSecret);
+	_init();
+	while (_firstName.empty())
+	{
+		std::cout << MSG_ADD << "First name: ";
+		std::getline(std::cin, _firstName);
+	}
+	while (_lastName.empty())
+	{
+		std::cout << MSG_ADD << "Last name: ";
+		std::getline(std::cin, _lastName);
+	}
+	while (_nickName.empty())
+	{
+		std::cout << MSG_ADD << "Nickname: ";
+		std::getline(std::cin, _nickName);
+	}
+	while (_phoneNumber.empty())
+	{
+		std::cout << MSG_ADD << "Phone number: ";
+		std::getline(std::cin, _phoneNumber);
+	}
+	while (_darkestSecret.empty())
+	{
+		std::cout << MSG_ADD << "Darkest secret: ";
+		std::getline(std::cin, _darkestSecret);
+	}
 }
 
-void	Contact::printHeaderPhoneBook(void)
+void	Contact::printListElement(int index)
 {
-	std::cout << MSG_SEPARTOR << std::endl;
-	std::cout << "|" << std::setw(10) << "INDEX";
-	std::cout << "|" << std::setw(10) << "FIRST NAME";
-	std::cout << "|" << std::setw(10) << "LAST NAME";
-	std::cout << "|" << std::setw(10) << "NICKNAME";
-	std::cout << "|" << std::endl;
-	std::cout << MSG_SEPARTOR << std::endl;
-}
-
-void	Contact::printPhoneBook(int index)
-{
+	if (_firstName.empty() || _lastName.empty() || _nickName.empty())
+		return ;
 	std::cout << "|" << std::setw(10) << index;
-	std::cout << "|" << std::setw(10) << "Quentin";
-	std::cout << "|" << std::setw(10) << "Fernendez";
-	std::cout << "|" << std::setw(10) << "Cleazyy";
+	std::cout << "|" << std::setw(10) << _resizeString(_firstName);
+	std::cout << "|" << std::setw(10) << _resizeString(_lastName);
+	std::cout << "|" << std::setw(10) << _resizeString(_nickName);
 	std::cout << "|" << std::endl;
 	std::cout << MSG_SEPARTOR << std::endl;
+}
+
+void	Contact::printContact(int index)
+{
+	if (_firstName.empty() || _lastName.empty() || _nickName.empty() || _phoneNumber.empty() || _darkestSecret.empty())
+		std::cout << MSG_ERROR << "This contact has not been added yet." << std::endl;
+	else
+	{
+		std::cout << "Index : " << index << std::endl;
+		std::cout << "First name: " << _firstName << std::endl;
+		std::cout << "Last name: " << _lastName << std::endl;
+		std::cout << "Nickname: " << _nickName << std::endl;
+		std::cout << "Phone number: " << _phoneNumber << std::endl;
+		std::cout << "Darkest secret: " << _darkestSecret << std::endl;
+	}
 }

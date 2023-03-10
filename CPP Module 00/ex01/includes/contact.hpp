@@ -6,17 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:14:38 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/09 22:30:44 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:38:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-
-# include <iomanip>
-
-# define MSG_CONTACT "\033[1;32m  ADD: \033[0m"
-# define MSG_SEPARTOR "|----------|----------|----------|----------|"
 
 class Contact
 {
@@ -27,13 +22,16 @@ class Contact
 	std::string _phoneNumber;
 	std::string _darkestSecret;
 
+	void		_init(void);
+	std::string	_resizeString(std::string str);
+
 	public :
 	Contact(void);
 	~Contact(void);
 
-	void	getSettings(void);
-	void	printHeaderPhoneBook();
-	void	printPhoneBook(int index);
+	void		getSettings(void);
+	void		printListElement(int index);
+	void		printContact(int index);
 };
 
 #endif
