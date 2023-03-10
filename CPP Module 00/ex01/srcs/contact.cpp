@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/10 18:39:15 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:27:00 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,29 @@ void	Contact::_init(void)
     _darkestSecret = "";
 }
 
+bool		Contact::_isPhoneNumber(std::string phoneNumber)
+{
+	bool onlyDigits;
+
+	onlyDigits = true;
+	for (size_t i = 0; i < phoneNumber.length(); i++)
+	{
+		if (!isdigit(phoneNumber[i]))
+		{
+			onlyDigits = false;
+			break ;
+		}
+	}
+	return (onlyDigits);
+}
+
 std::string	Contact::_resizeString(std::string str)
 {
 	std::string res;
 
-	if (str.empty())
-		res = "(null)";
-	else if (str.length() <= 10)
+	if (str.length() <= 10)
 		res = str;
-	else if (str.length() > 10)
+	else
 	{
 		res = str.substr(0, 9);
 		res.replace(9, 1, ".");
@@ -65,7 +79,7 @@ void	Contact::getSettings(void)
 		std::cout << MSG_ADD << "Nickname: ";
 		std::getline(std::cin, _nickName);
 	}
-	while (_phoneNumber.empty())
+	while (_phoneNumber.empty() || !_isPhoneNumber(_phoneNumber))
 	{
 		std::cout << MSG_ADD << "Phone number: ";
 		std::getline(std::cin, _phoneNumber);

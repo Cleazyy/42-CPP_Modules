@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:17:27 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/10 18:43:05 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:22:06 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <cstdlib>
+# include <cstring>
 # include "contact.hpp"
 
 # define MSG_PHONEBOOK "\033[1;36mPhoneBook: \033[0m"
@@ -31,6 +32,7 @@ class PhoneBook
 
 	void	_printHeader(void);
 	void	_printList(void);
+	bool	_inputOnlyDigits(std::string input);
 
 	public :
 	PhoneBook(void);

@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:14:38 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/10 18:38:13 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:24:06 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Contact
 	std::string _darkestSecret;
 
 	void		_init(void);
+	bool		_isPhoneNumber(std::string phoneNumber);
 	std::string	_resizeString(std::string str);
 
 	public :
