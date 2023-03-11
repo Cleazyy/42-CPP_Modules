@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:17:27 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/10 20:22:06 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:12:34 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iomanip>
 # include <cstdlib>
 # include <cstring>
-# include "contact.hpp"
+# include "Contact.hpp"
 
 # define MSG_PHONEBOOK "\033[1;36mPhoneBook: \033[0m"
 # define MSG_ADD "\033[1;32mADD: \033[0m"

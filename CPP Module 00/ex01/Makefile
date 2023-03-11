@@ -6,7 +6,7 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 20:07:56 by fluchten          #+#    #+#              #
-#    Updated: 2023/03/09 19:33:10 by fluchten         ###   ########.fr        #
+#    Updated: 2023/03/11 15:12:19 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INC_DIR = includes
 SRCS_DIR = srcs
 OBJS_DIR = objs
 
-SRCS = contact.cpp main.cpp phonebook.cpp
+SRCS = Contact.cpp main.cpp PhoneBook.cpp
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
 
 all: ${NAME}
