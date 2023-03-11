@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:34:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/02/25 20:17:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/11 15:14:55 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	print_error(const char *str)
 {
-	std::cerr << str << std::endl;
+	std::cout << str << std::endl;
 	return (1);
 }
 
