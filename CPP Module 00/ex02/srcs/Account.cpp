@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 21:17:47 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/11 10:15:30 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/22 09:32:08 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	Account::getNbWithdrawals(void)
 
 int	Account::checkAmount(void) const
 {
-	return _amount;
+	return (_amount);
 }
 
 Account::Account(void)
