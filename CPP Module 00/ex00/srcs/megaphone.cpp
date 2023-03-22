@@ -6,17 +6,11 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 18:34:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/11 15:14:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/22 08:14:01 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-static int	print_error(const char *str)
-{
-	std::cout << str << std::endl;
-	return (1);
-}
 
 static void	to_upper(char *str)
 {
@@ -30,7 +24,10 @@ static void	to_upper(char *str)
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-		return (print_error("* LOUD AND UNBEARABLE FEEDBACK NOISE *"));
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return (0);
+	}
 	for (int i = 1; av[i]; i++)
 	{
 		to_upper(av[i]);
