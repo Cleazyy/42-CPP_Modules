@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 20:17:27 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/11 15:12:34 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/22 08:26:53 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@
 
 class PhoneBook
 {
-	private:
-	Contact	_contact[8];
-
-	void	_printHeader(void);
-	void	_printList(void);
-	bool	_inputOnlyDigits(std::string input);
-
 	public :
 	PhoneBook(void);
 	~PhoneBook(void);
 
 	void	addContact(void);
 	void	searchContact(void);
+
+	private:
+	Contact	_contact[8];
+
+	void	_printHeader(void);
+	void	_printList(void);
+	bool	_inputOnlyDigits(std::string input);
 };
 
 #endif

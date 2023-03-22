@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/11 15:12:44 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/22 08:49:09 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,6 @@ bool		Contact::_isPhoneNumber(std::string phoneNumber)
 	return (onlyDigits);
 }
 
-std::string	Contact::_resizeString(std::string str)
-{
-	std::string res;
-
-	if (str.length() <= 10)
-		res = str;
-	else
-	{
-		res = str.substr(0, 9);
-		res.replace(9, 1, ".");
-	}
-	return (res);
-}
-
 void	Contact::getSettings(void)
 {
 	_init();
@@ -91,7 +77,21 @@ void	Contact::getSettings(void)
 	}
 }
 
-void	Contact::printListElement(int index)
+std::string	Contact::_resizeString(std::string str)
+{
+	std::string res;
+
+	if (str.length() <= 10)
+		res = str;
+	else
+	{
+		res = str.substr(0, 9);
+		res.replace(9, 1, ".");
+	}
+	return (res);
+}
+
+void	Contact::printElementList(int index)
 {
 	if (_firstName.empty() || _lastName.empty() || _nickName.empty())
 		return ;

@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:12:02 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/11 15:12:49 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/22 08:54:47 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ PhoneBook::PhoneBook(void)
 PhoneBook::~PhoneBook(void)
 {
 	return ;
+}
+
+void	PhoneBook::addContact(void)
+{
+	static int index = 0;
+
+	_contact[index].getSettings();
+	index++;
+	if (index == 8)
+		index = 0;
 }
 
 void	PhoneBook::_printHeader(void)
@@ -36,8 +46,8 @@ void	PhoneBook::_printHeader(void)
 void	PhoneBook::_printList(void)
 {
 	_printHeader();
-	for (int i = 0; i < 8; i++)
-		_contact[i].printListElement(i);
+	for (int index = 0; index < 8; index++)
+		_contact[index].printElementList(index);
 }
 
 bool	PhoneBook::_inputOnlyDigits(std::string input)
@@ -54,16 +64,6 @@ bool	PhoneBook::_inputOnlyDigits(std::string input)
 		}
 	}
 	return (onlyDigits);
-}
-
-void	PhoneBook::addContact(void)
-{
-	static int	i = 0;
-
-	_contact[i].getSettings();
-	i++;
-	if (i == 8)
-		i = 0;
 }
 
 void	PhoneBook::searchContact(void)
