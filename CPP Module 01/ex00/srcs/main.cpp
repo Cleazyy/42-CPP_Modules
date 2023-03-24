@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:04:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/13 19:22:23 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:25:20 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	Zombie	carlos = Zombie("Carlos");
-	Zombie *murillo = newZombie("Murillo");
+	Zombie*	murillo = newZombie("Murillo");
 	randomChump("Marwane");
 	delete murillo;
 	return (0);

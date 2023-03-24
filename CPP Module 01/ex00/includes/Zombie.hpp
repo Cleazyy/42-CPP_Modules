@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:05:17 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/13 19:21:18 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:23:54 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class Zombie
 {
 	private:
-	std::string	_name;
+		std::string	_name;
 
 	public:
-	Zombie(std::string name);
-	~Zombie(void);
+		Zombie(std::string name);
+		~Zombie(void);
 
-	void	announce(void);
+		void	announce(void);
 };
 
 Zombie*	newZombie(std::string name);
