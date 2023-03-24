@@ -6,13 +6,13 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:52:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 09:02:02 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 10:02:36 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+Weapon::Weapon(std::string type) : _type(type)
 {
 	return ;
 }
@@ -22,7 +22,12 @@ Weapon::~Weapon(void)
 	return ;
 }
 
-Weapon::setType(std::string newType)
+std::string&	Weapon::getType(void)
 {
-	_type = newType;
+	return (this->_type);
+}
+
+void	Weapon::setType(std::string newType)
+{
+	this->_type = newType;
 }
