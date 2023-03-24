@@ -6,11 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:38:12 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 10:55:52 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 11:30:32 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <fstream>
 
 int	main(int ac, char **av)
 {
@@ -22,4 +23,8 @@ int	main(int ac, char **av)
 	std::string	file = av[1];
 	std::string	s1 = av[2];
 	std::string	s2 = av[3];
+
+	std::ifstream fd;
+	fd.open(file);
+	fd.close();
 }
