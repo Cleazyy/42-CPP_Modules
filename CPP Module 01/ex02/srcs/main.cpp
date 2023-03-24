@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 19:01:05 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/14 19:22:35 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:48:21 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	std::string	string = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &string;
-	std::string	&stringREF = string;
+	std::string		string = "HI THIS IS BRAIN";
+	std::string*	stringPTR = &string;
+	std::string&	stringREF = string;
 
 	std::cout << "string adress: " << &string << std::endl;
 	std::cout << "stringPTR adress: " << stringPTR << std::endl;
