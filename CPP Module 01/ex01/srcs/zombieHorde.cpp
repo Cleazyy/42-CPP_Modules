@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:29:53 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/13 20:10:01 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:40:08 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie	*horde = new Zombie[N];
+	Zombie*	horde = new Zombie[N];
 
 	for (int i = 0; i < N; i++)
 		horde[i].setName(name);

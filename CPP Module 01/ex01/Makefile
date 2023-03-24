@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 18:02:35 by fluchten          #+#    #+#              #
-#    Updated: 2023/03/13 19:30:27 by fluchten         ###   ########.fr        #
+#    Updated: 2023/03/24 08:30:03 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = horde
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

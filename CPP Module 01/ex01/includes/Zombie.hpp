@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:05:17 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/13 20:13:48 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:43:14 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ZOMBIE_H
 
 # include <iostream>
+
+# define NB_ZOMBIES 5
 
 class Zombie
 {
