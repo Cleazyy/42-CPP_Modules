@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:38:12 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 16:15:41 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/25 10:55:07 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ static int	read_and_replace(std::string file, std::string s1, std::string s2)
 {
 	std::string	content;
 	std::string	line;
-	(void) s1;
-	(void) s2;
-
 
 	std::ifstream inputFile(file);
 	if (!inputFile.is_open())
@@ -28,12 +25,19 @@ static int	read_and_replace(std::string file, std::string s1, std::string s2)
 		return (1);
 	}
 	while (std::getline(inputFile, line))
-		content += line + "\n";
+	{
+		content += line;
+		if (!inputFile.eof()) 
+			content += "\n";
+	}
 	inputFile.close();
 
-
-	std::cout << content;
-
+	size_t pos = 0;
+	while ((pos = content.find(s1, pos)) != std::string::npos)
+	{
+		content = content.substr(0, pos) + s2 + content.substr(pos + s1.length());
+		pos += s2.length();
+	}
 
 	std::ofstream outputFile(file + ".replace");
 	if (!outputFile.is_open())
@@ -41,8 +45,8 @@ static int	read_and_replace(std::string file, std::string s1, std::string s2)
 		std::cerr << "Failed to create '" << file << "'" << std::endl;
 		return (1);
 	}
+	outputFile << content;
 	outputFile.close();
-
 
 	return (0);
 }
