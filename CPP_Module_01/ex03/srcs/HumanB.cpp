@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:52:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 10:02:15 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:23:55 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,8 @@ void	HumanB::setWeapon(Weapon& weapon)
 
 void	HumanB::attack(void)
 {
-    std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	if (this->_weapon->getType() != "")
+		std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+	else
+		std::cout << this->_name << " attacks with his fists" << std::endl;
 }

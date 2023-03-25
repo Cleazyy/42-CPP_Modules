@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/14 20:11:32 by fluchten          #+#    #+#              #
-#    Updated: 2023/03/14 20:53:17 by fluchten         ###   ########.fr        #
+#    Updated: 2023/03/25 17:07:08 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = violence
+NAME = unnecessary_violence
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

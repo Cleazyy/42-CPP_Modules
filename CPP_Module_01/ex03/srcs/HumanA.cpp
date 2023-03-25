@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:52:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 09:49:13 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/25 17:20:23 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ HumanA::~HumanA(void)
 
 void	HumanA::attack(void)
 {
-    std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+	if (this->_weapon.getType() != "")
+	    std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
+	else
+		std::cout << this->_name << " attacks with his fists" << std::endl;
 }
