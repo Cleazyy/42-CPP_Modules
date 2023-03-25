@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/25 13:10:16 by fluchten          #+#    #+#              #
-#    Updated: 2023/03/25 16:47:15 by fluchten         ###   ########.fr        #
+#    Updated: 2023/03/25 16:55:45 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = HarlFilter
+NAME = harlFilter
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
