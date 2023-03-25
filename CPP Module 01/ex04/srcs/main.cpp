@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:38:12 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 12:36:03 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/25 12:49:18 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@ int	main(int ac, char **av)
 	std::string	s2 = av[3];
 
 	File	File(file);
-	std::string	fileContent = File.read_inputFile();
-	if (fileContent.empty())
+	if (File.read() != 0)
 		return (1);
-	fileContent = File.replace_fileContent(fileContent, s1, s2);
-	if (File.create_outputFile(fileContent) != 0)
+	File.replace(s1, s2);
+	if (File.create() != 0)
 		return (1);
 	return (0);
 }
