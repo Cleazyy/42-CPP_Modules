@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 12:03:36 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 12:49:18 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:57:24 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	File::read(void)
 	std::ifstream inputFile(this->_inFile);
 	if (!inputFile.is_open())
 	{
-		std::cerr << "Failed to open '" << this->_inFile << "'" << std::endl;
+		std::cout << "Failed to open '" << this->_inFile << "'" << std::endl;
 		return (1);
 	}
 	std::string	line;
@@ -60,7 +60,7 @@ int	File::create(void)
 	std::ofstream outputFile(this->_outFile);
 	if (!outputFile.is_open())
 	{
-		std::cerr << "Failed to create '" << this->_outFile << "'" << std::endl;
+		std::cout << "Failed to create '" << this->_outFile << "'" << std::endl;
 		return (1);
 	}
 	outputFile << this->_fileContent;
