@@ -6,22 +6,22 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:11:10 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 16:17:22 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/27 07:52:33 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	std::string	input;
+	if (ac != 2)
+	{
+		std::cout << "Usage: ./harl <level>" << std::endl;
+		return (1);
+	}
+	std::string	level = av[1];
 	Harl		Harl;
 
-	while (1)
-	{
-		std::cout << MSG_HARL;
-		std::getline(std::cin, input);
-		Harl.complain(input);
-	}
+	Harl.complain(level);
 	return (0);
 }
