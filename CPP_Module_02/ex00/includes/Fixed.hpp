@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/26 12:27:15 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:43:27 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 
 	public:
 		Fixed(void);
-		Fixed(const Fixed& other);
-		Fixed& operator=(const Fixed& other);
+		Fixed(const Fixed& rhs);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed(void);
 
 		int		getRawBits(void) const;

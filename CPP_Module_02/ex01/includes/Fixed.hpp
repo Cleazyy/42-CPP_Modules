@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/27 10:58:27 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:22:40 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Fixed
 		Fixed(void);
 		Fixed(const int nb);
 		Fixed(const float nb);
-		Fixed(const Fixed& other);
-		Fixed& operator=(const Fixed& other);
+		Fixed(const Fixed& rhs);
+		Fixed& operator=(const Fixed& rhs);
 		~Fixed(void);
 
 		int		getRawBits(void) const;
@@ -34,5 +34,7 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 };
+
+std::ostream&	operator<<(std::ostream& o, const Fixed& rhs);
 
 #endif

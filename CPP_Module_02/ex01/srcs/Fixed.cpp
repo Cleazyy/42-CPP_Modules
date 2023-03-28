@@ -6,43 +6,49 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/27 11:18:01 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:41:49 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+/* Constructor */
 Fixed::Fixed(void) : _fixed(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
+/* Int constructor */
 Fixed::Fixed(const int nb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	(void) nb;
+	this->_fixed = nb << Fixed::_bits;
 }
 
+/* Float constructor */
 Fixed::Fixed(const float nb)
 {
 	std::cout << "Float constructor called" << std::endl;
-	(void) nb;
+	this->_fixed = roundf(nb * (1 << Fixed::_bits));
 }
 
-Fixed::Fixed(const Fixed& other)
+/* Copy constructor */
+Fixed::Fixed(const Fixed& rhs)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	*this = rhs;
 }
 
-Fixed&	Fixed::operator=(const Fixed& other)
+/* Assignment operator */
+Fixed&	Fixed::operator=(const Fixed& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &other)
-		this->_fixed = other.getRawBits();
+	if (this != &rhs)
+		this->_fixed = rhs.getRawBits();
 	return (*this);
 }
 
+/* Destructor */
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
@@ -65,4 +71,10 @@ float	toFloat(void) const
 
 int		toInt(void) const
 {
+	return (this->_fixed >> Fixed::_bits);
+}
+
+std::ostream&	operator<<(std::ostream& o, const Fixed& rhs)
+{
+	o << rhs.toFloat();
 }
