@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/28 18:22:40 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:37:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_H
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {

@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/28 18:41:49 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/28 21:09:35 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void) : _fixed(0)
 Fixed::Fixed(const int nb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed = nb << Fixed::_bits;
+	this->_fixed = (nb << Fixed::_bits);
 }
 
 /* Float constructor */
@@ -65,11 +65,12 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixed = raw;
 }
 
-float	toFloat(void) const
+float	Fixed::toFloat(void) const
 {
+	return ((float)this->_fixed / (1 << Fixed::_bits));
 }
 
-int		toInt(void) const
+int		Fixed::toInt(void) const
 {
 	return (this->_fixed >> Fixed::_bits);
 }
@@ -77,4 +78,5 @@ int		toInt(void) const
 std::ostream&	operator<<(std::ostream& o, const Fixed& rhs)
 {
 	o << rhs.toFloat();
+	return (o);
 }
