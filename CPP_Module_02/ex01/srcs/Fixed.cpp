@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/28 21:09:35 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:53:24 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void) : _fixed(0)
 Fixed::Fixed(const int nb)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed = (nb << Fixed::_bits);
+	this->_fixed = (nb << Fixed::_bits); // (nb * 2^bits)
 }
 
 /* Float constructor */
