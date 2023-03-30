@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:38:15 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 08:49:36 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:19:28 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ Point::Point(const Point& rhs) : _x(rhs._x), _y(rhs._y) {}
 Point&	Point::operator=(const Point& rhs)
 {
 	if (this != &rhs)
-		// this->_x = rhs.getX();
-		// this->_y = rhs.getY();
-		(void) rhs;
+		const_cast<Fixed&>(this->_x) = rhs.getX();
+		const_cast<Fixed&>(this->_y) = rhs.getY();
 	return (*this);
 }
 
