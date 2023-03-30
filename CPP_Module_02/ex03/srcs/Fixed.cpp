@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/29 20:38:18 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:35:57 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ float	Fixed::toFloat(void) const
 	return ((float)this->_fixed / (1 << Fixed::_bits));
 }
 
-int		Fixed::toInt(void) const
+int	Fixed::toInt(void) const
 {
 	return (this->_fixed >> Fixed::_bits);
 }
