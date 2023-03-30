@@ -6,18 +6,18 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:43:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 17:51:52 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:23:00 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Fixed	abs(Fixed x)
+static Fixed	abs(Fixed x)
 {
 	return (x < 0 ? x * -1 : x);
 }
 
-Fixed	area(Fixed x1, Fixed y1, Fixed x2, Fixed y2, Fixed x3, Fixed y3)
+static Fixed	area(Fixed x1, Fixed y1, Fixed x2, Fixed y2, Fixed x3, Fixed y3)
 {
 	return (abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2));
 }
