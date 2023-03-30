@@ -6,38 +6,47 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 12:57:12 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:49:10 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-static Fixed	abs(Fixed x)
-{
-	return (x < 0 ? x * -1 : x);
-}
-
-static Fixed	area( Point const a, Point const b, Point const c )
-{
-	return (((a.getX() * (b.getY() - c.getY())) + (b.getX() * (c.getY() - a.getY())) + (c.getX() * (a.getY() - b.getY()))) / 2);
-}
-
-bool	bsp(Point const a, Point const b, Point const c, Point const point)
-{
-	Fixed	abcArea = abs(area(a, b, c));
-	Fixed	pabArea = abs(area(point, a, b));
-	Fixed	pbcArea = abs(area(point, b, c));
-	Fixed	pcaArea = abs(area(point, c, a));
-
-	return  (abcArea == pabArea + pbcArea + pcaArea);
-}
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
 int	main(void)
 {
-	if (bsp(Point(0, 0), Point(10, 30), Point(20, 0), Point(30, 15)) == true)
-		std::cout << "Point is in the triangle" << std::endl;
-	else
-		std::cout << "Point is not in the triangle" << std::endl;
-	return 0;
+	Point	a(0, 0);
+	Point	b(10, 30);
+	Point	c(20, 0);
+
+	/* Inside */
+	std::cout << "[ Inside ]" << std::endl;
+	std::cout << "Point(9, 15) --> " << bsp(a, b,  c, Point(9, 15)) << std::endl;
+	std::cout << "Point(4, 1) --> " << bsp(a, b,  c, Point(4, 1)) << std::endl;
+	std::cout << "Point(15, 14) --> " << bsp(a, b,  c, Point(15, 14)) << std::endl;
+	std::cout << std::endl;
+
+	/* Outside */
+	std::cout << "[ Outside ]" << std::endl;
+	std::cout << "Point(-5, 5) --> " << bsp(a, b,  c, Point(-5, 5)) << std::endl;
+	std::cout << "Point(10, 35) --> " << bsp(a, b,  c, Point(10, 35)) << std::endl;
+	std::cout << "Point(23, 5) --> " << bsp(a, b,  c, Point(23, 5)) << std::endl;
+	std::cout << std::endl;
+
+	/* Vertex points */
+	std::cout << "[ Vertex ]" << std::endl;
+	std::cout << "Point(0, 0) --> " << bsp(a, b, c, Point(0, 0)) << std::endl;
+	std::cout << "Point(10, 30) --> " << bsp(a, b, c, Point(10, 30)) << std::endl;
+	std::cout << "Point(20, 0) --> " << bsp(a, b, c, Point(20, 0)) << std::endl;
+	std::cout << std::endl;
+
+	/* Edge points */
+	std::cout << "[ Edge ]" << std::endl;
+	std::cout << "Point(1, 0) --> " << bsp(a, b, c, Point(1, 0)) << std::endl;
+	std::cout << "Point(7, 0) --> " << bsp(a, b, c, Point(7, 0)) << std::endl;
+	std::cout << "Point(14, 0) --> " << bsp(a, b, c, Point(14, 0)) << std::endl;
+
+	return (0);
 }

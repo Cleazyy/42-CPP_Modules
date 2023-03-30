@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/26 11:50:18 by fluchten          #+#    #+#              #
-#    Updated: 2023/03/30 08:04:49 by fluchten         ###   ########.fr        #
+#    Updated: 2023/03/30 17:53:24 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = bsp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -20,7 +20,7 @@ INC_DIR = includes
 SRCS_DIR = srcs
 OBJS_DIR = objs
 
-SRCS = Fixed.cpp main.cpp Point.cpp
+SRCS = bsp.cpp Fixed.cpp main.cpp Point.cpp
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
 
 all: ${NAME}
