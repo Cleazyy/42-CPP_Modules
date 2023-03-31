@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 19:34:18 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/03/31 07:29:35 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixed);
 }
 
