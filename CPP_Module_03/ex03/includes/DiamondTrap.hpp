@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:26:59 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 17:14:49 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:19:28 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define DIAMONDTRAP_H
 
 # include "ClapTrap.hpp"
-# include "FragTrap.hpp"
 # include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
