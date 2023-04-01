@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:43 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/31 21:40:27 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:52:20 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ class ClapTrap
 		int			_energyPoints;
 		int			_attackDamage;
 
-		void	displayStatus(std::string content);
-		void	displayHealth(void);
+		void	_displayStatus(std::string content);
+		void	_displayHealthEnergy(void);
+		bool	_isDead(void);
+		bool	_hasNoEnergy(void);
 
 	public:
 		ClapTrap(void);

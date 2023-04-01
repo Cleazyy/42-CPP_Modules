@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:14:30 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/31 21:52:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:53:08 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,34 @@ ClapTrap::~ClapTrap(void)
 /*                          Private Member functions                          */
 /* ************************************************************************** */
 
-void	ClapTrap::displayStatus(std::string content)
+void	ClapTrap::_displayStatus(std::string content)
 {
 	std::cout << "ClapTrap " << this->_name << " " << content << std::endl;
 }
 
-void	ClapTrap::displayHealth(void)
+void	ClapTrap::_displayHealthEnergy(void)
 {
-	std::cout << "ClapTrap " << this->_name << " now has " << this->_hitPoints << " hit points!" << std::endl;
+	std::cout << this->_name << " now has " << this->_hitPoints << " hit points and " << this->_energyPoints << " energy points!" << std::endl;
+}
+
+bool	ClapTrap::_isDead(void)
+{
+	if (this->_hitPoints <= 0)
+	{
+		this->_displayStatus("is dead!");
+		return (true);
+	}
+	return (false);
+}
+
+bool	ClapTrap::_hasNoEnergy(void)
+{
+	if (this->_energyPoints <= 0)
+	{
+		this->_displayStatus("is out of energy points!");
+		return (true);
+	}
+	return (false);
 }
 
 /* ************************************************************************** */
@@ -70,50 +90,30 @@ void	ClapTrap::displayHealth(void)
 
 void	ClapTrap::attack(const std::string& target)
 {
-	if (this->_hitPoints <= 0)
-	{
-		this->displayStatus("is dead!");
+	if (this->_isDead() || this->_hasNoEnergy())
 		return ;
-	}
-	if (this->_energyPoints <= 0)
-	{
-		this->displayStatus("is out of energy points!");
-		return ;
-	}
 	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	this->_energyPoints--;
+	this->_displayHealthEnergy();
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hitPoints <= 0)
-	{
-		this->displayStatus("is dead!");
+	if (this->_isDead())
 		return ;
-	}
 	std::cout << "ClapTrap " << this->_name << " takes " << amount << " damage!" << std::endl;
 	this->_hitPoints -= amount;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	this->displayHealth();
-	if (this->_hitPoints <= 0)
-		this->displayStatus("is dead!");
+	this->_displayHealthEnergy();
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints <= 0)
-	{
-		this->displayStatus("is dead!");
+	if (this->_isDead() || this->_hasNoEnergy())
 		return ;
-	}
-	if (this->_energyPoints <= 0)
-	{
-		this->displayStatus("is out of energy points!");
-		return ;
-	}
 	std::cout << "ClapTrap " << this->_name << " repairs itself for " << amount << " hit points!" << std::endl;
 	this->_hitPoints += amount;
 	this->_energyPoints--;
-	this->displayHealth();
+	this->_displayHealthEnergy();
 }
