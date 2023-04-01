@@ -6,21 +6,21 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/31 19:03:15 by fluchten          #+#    #+#              #
-#    Updated: 2023/04/01 14:06:38 by fluchten         ###   ########.fr        #
+#    Updated: 2023/04/01 17:18:08 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ClapTrap
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wshadow -Wno-shadow
 RM = rm -rf
 
 INC_DIR = includes
 SRCS_DIR = srcs
 OBJS_DIR = objs
 
-SRCS = ClapTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
+SRCS = ClapTrap.cpp DiamondTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
 OBJS = $(addprefix ${OBJS_DIR}/, ${SRCS:%.cpp=%.o})
 
 all: ${NAME}
