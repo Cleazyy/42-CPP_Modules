@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:14:30 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 12:53:08 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/02 12:23:42 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@
 
 ClapTrap::ClapTrap(void) : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "ClapTrap's default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Name constructor called" << std::endl;
+	std::cout << "ClapTrap's name constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& rhs)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap's copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& rhs)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap's copy assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
@@ -47,7 +47,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& rhs)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap's destructor called" << std::endl;
 }
 
 /* ************************************************************************** */

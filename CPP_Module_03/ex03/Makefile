@@ -6,14 +6,14 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/31 19:03:15 by fluchten          #+#    #+#              #
-#    Updated: 2023/04/01 17:18:08 by fluchten         ###   ########.fr        #
+#    Updated: 2023/04/02 12:36:24 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = DiamondTrap
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wshadow -Wno-shadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
 
 INC_DIR = includes

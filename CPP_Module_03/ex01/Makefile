@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/31 19:03:15 by fluchten          #+#    #+#              #
-#    Updated: 2023/04/01 13:03:23 by fluchten         ###   ########.fr        #
+#    Updated: 2023/04/02 12:29:11 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = ScavTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
