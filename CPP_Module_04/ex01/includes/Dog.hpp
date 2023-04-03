@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:35:15 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 11:34:19 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:40:02 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 # define DOG_H
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog: public Animal
 {
+	private:
+		Brain	*_brain;
+
 	public:
 		Dog(void);
 		Dog(const Dog& rhs);

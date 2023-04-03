@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:26:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 12:09:22 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:25:47 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ Brain&	Brain::operator=(const Brain& rhs)
 {
 	std::cout << "Brain copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->_ideas[100] = rhs._ideas[100];
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = rhs._ideas[i];
 	return (*this);
 }
 

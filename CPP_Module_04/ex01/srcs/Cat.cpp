@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:37:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 11:28:57 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:40:48 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat(void) : Animal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	this->_type = "Cat";
+	this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat& rhs)
@@ -39,6 +40,7 @@ Cat&	Cat::operator=(const Cat& rhs)
 Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called" << std::endl;
+	delete this->_brain;
 }
 
 /* ************************************************************************** */

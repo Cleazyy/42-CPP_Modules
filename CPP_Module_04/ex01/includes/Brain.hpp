@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:20:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 11:34:15 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:23:51 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ class Brain
 		Brain(void);
 		Brain(const Brain& rhs);
 		Brain& operator=(const Brain& rhs);
-		virtual ~Brain(void);
-
-		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		~Brain(void);
 };
 
 #endif
