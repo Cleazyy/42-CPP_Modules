@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 11:34:10 by fluchten         ###   ########.fr       */
+/*   Created: 2023/04/03 11:20:56 by fluchten          #+#    #+#             */
+/*   Updated: 2023/04/03 11:34:15 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
 # include <iostream>
 
-class Animal
+class Brain
 {
 	protected:
-		std::string	_type;
+		std::string	_ideas[100];
 
 	public:
-		Animal(void);
-		Animal(const Animal& rhs);
-		Animal& operator=(const Animal& rhs);
-		virtual ~Animal(void);
+		Brain(void);
+		Brain(const Brain& rhs);
+		Brain& operator=(const Brain& rhs);
+		virtual ~Brain(void);
 
 		std::string		getType(void) const;
 		virtual void	makeSound(void) const;
