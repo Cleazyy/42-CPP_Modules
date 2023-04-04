@@ -16,7 +16,7 @@
 /*                               Canonical form                               */
 /* ************************************************************************** */
 
-Dog::Dog(void) : Animal()
+Dog::Dog(void) : AAnimal()
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->_type = "Dog";

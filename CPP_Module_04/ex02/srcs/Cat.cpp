@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:37:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 08:02:41 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:35:11 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*                               Canonical form                               */
 /* ************************************************************************** */
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : AAnimal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	this->_type = "Cat";

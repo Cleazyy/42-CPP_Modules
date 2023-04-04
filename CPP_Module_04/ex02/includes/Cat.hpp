@@ -6,17 +6,17 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:35:15 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 17:39:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:34:03 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_H
 # define CAT_H
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat: public Animal
+class Cat: public AAnimal
 {
 	private:
 		Brain	*_brain;
