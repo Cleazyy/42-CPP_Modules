@@ -1,60 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 10:19:29 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 21:35:43 by fluchten         ###   ########.fr       */
+/*   Created: 2023/04/04 19:34:34 by fluchten          #+#    #+#             */
+/*   Updated: 2023/04/04 22:17:48 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
 /* ************************************************************************** */
 /*                               Canonical form                               */
 /* ************************************************************************** */
 
-AMateria::AMateria(void) : _type("Default")
+Cure::Cure(void) : AMateria("cure")
 {
-	// std::cout << "AMateria default constructor called" << std::endl;
+	// std::cout << "Cure default constructor called" << std::endl;
 }
 
-AMateria::AMateria(const std::string& type) : _type(type)
+Cure::Cure(const Cure& rhs) : AMateria("cure")
 {
-	// std::cout << "AMateria set type constructor called" << std::endl;
+	// std::cout << "Cure copy constructor called" << std::endl;
+    *this = rhs;
 }
 
-AMateria::AMateria(const AMateria& rhs)
+Cure&	Cure::operator=(const Cure& rhs)
 {
-	// std::cout << "AMateria copy constructor called" << std::endl;
-	*this = rhs;
-}
-
-AMateria&	AMateria::operator=(const AMateria& rhs)
-{
-	// std::cout << "AMateria copy assignment operator called" << std::endl;
+	// std::cout << "Cure copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_type = rhs._type;
 	return (*this);
 }
 
-AMateria::~AMateria(void)
+Cure::~Cure(void)
 {
-	// std::cout << "AMateria destructor called" << std::endl;
+	// std::cout << "Cure destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-const std::string&	AMateria::getType() const
+AMateria*   Cure::clone(void) const
 {
-	return (this->_type);
+    return (new Cure(*this));
 }
 
-void	AMateria::use(ICharacter& target)
+void    Cure::use(ICharacter& target)
 {
-	std::cout << "AMateria " << this->_type << " used on " << target.getName() << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
