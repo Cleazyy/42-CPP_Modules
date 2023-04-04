@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:35:15 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 17:40:02 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:28:08 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "Animal.hpp"
 # include "Brain.hpp"

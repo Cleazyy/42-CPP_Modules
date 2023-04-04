@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/02 14:23:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 22:28:12 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
 
