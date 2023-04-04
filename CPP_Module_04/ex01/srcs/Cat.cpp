@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 13:37:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 17:40:48 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 08:02:41 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,19 @@ Cat::Cat(void) : Animal()
 Cat::Cat(const Cat& rhs)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = rhs;
+	this->_type = rhs._type;
+	this->_brain = new Brain(*rhs._brain);
 }
 
 Cat&	Cat::operator=(const Cat& rhs)
 {
 	std::cout << "Cat copy assignment operator called" << std::endl;
 	if (this != &rhs)
+	{
 		this->_type = rhs._type;
+		delete this->_brain;
+		this->_brain = new Brain(*rhs._brain);
+	}
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:26:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 17:25:47 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/04 07:52:18 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = "";
 }
 
 Brain::Brain(const Brain& rhs)
