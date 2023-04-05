@@ -32,7 +32,7 @@ Dog&	Dog::operator=(const Dog& rhs)
 {
 	std::cout << "Dog copy assignment operator called" << std::endl;
 	if (this != &rhs)
-		this->_type = rhs._type;
+		this->_type = "Dog";
 	return (*this);
 }
 
