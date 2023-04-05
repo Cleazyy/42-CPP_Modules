@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:35:41 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 22:20:38 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:56:18 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs)
 	{
 		for (int i = 0; i < 4; i++)
 		{
-			delete this->_materias[i];
-			this->_materias[i] = rhs._materias[i]->clone();
+			if (_materias[i])
+				delete this->_materias[i];
+			if (rhs._materias[i])
+				this->_materias[i] = rhs._materias[i]->clone();
+			else
+				_materias[i] = NULL;
 		}
 	}
 	return (*this);

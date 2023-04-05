@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:19:29 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 22:25:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/04/05 07:54:00 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,12 @@ Character&	Character::operator=(const Character& rhs)
 		this->_name = rhs._name;
 		for (int i = 0; i < 4; i++)
 		{
-			delete this->_inventory[i];
-			this->_inventory[i] = rhs._inventory[i]->clone();
+			if (_inventory[i])
+				delete this->_inventory[i];
+			if (rhs._inventory[i])
+				this->_inventory[i] = rhs._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
 		}
 	return (*this);
 }
@@ -53,7 +57,8 @@ Character::~Character()
 {
 	// std::cout << "AMateria destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
-		delete this->_inventory[i];
+		if (_inventory[i])
+			delete this->_inventory[i];
 }
 
 /* ************************************************************************** */
@@ -79,10 +84,7 @@ void	Character::equip(AMateria* m)
 void	Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3 && this->_inventory[idx])
-	{
-		delete this->_inventory[idx];
 		this->_inventory[idx] = NULL;
-	}
 	else
 		std::cout << "Error: " << this->_name << " does not have a materia equipped with this index!" << std::endl;
 }
