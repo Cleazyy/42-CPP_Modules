@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:38:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 08:48:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:39:30 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_H
-# define POINT_H
+#ifndef POINT_HPP
+# define POINT_HPP
 
 #include "Fixed.hpp"
 

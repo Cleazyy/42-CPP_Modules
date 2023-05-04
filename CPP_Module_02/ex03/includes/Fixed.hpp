@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/29 20:23:12 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:39:26 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 # include <iostream>
 # include <cmath>

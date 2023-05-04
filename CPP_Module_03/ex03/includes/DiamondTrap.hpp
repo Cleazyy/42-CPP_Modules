@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:26:59 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 17:19:28 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:40:05 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_H
-# define DIAMONDTRAP_H
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
