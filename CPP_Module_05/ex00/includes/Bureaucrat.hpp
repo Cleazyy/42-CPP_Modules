@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/04 18:58:30 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/05 12:57:41 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ class Bureaucrat
 		int				getGrade(void) const;
 		void			incrementGrade(void);
 		void			decrementGrade(void);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
 };
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& rhs);
