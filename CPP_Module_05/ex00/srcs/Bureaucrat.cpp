@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/05 12:54:54 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:17:49 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 		if (this->_grade > 150)
 			throw Bureaucrat::GradeTooLowException();
 	}
-	catch (Bureaucrat::GradeTooHighException high)
+	catch (Bureaucrat::GradeTooHighException ex)
 	{
 		this->_grade = 1;
-		std::cout << this->_name << "'s " << high.what() << std::endl;
+		std::cout << this->_name << "'s " << ex.what() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException low)
+	catch (Bureaucrat::GradeTooLowException ex)
 	{
 		this->_grade = 150;
-		std::cout << this->_name << "'s " << low.what() << std::endl;
+		std::cout << this->_name << "'s " << ex.what() << std::endl;
 	}
 }
 
@@ -85,9 +85,9 @@ void	Bureaucrat::incrementGrade(void)
 		else
 			this->_grade--;
 	}
-	catch (Bureaucrat::GradeTooHighException high)
+	catch (Bureaucrat::GradeTooHighException ex)
 	{
-		std::cout << "Error: " << this->_name << "'s " << high.what() << std::endl;
+		std::cout << "Error: " << this->_name << "'s " << ex.what() << std::endl;
 	}
 		
 }
@@ -101,9 +101,9 @@ void	Bureaucrat::decrementGrade(void)
 		else
 			this->_grade++;
 	}
-	catch (Bureaucrat::GradeTooLowException low)
+	catch (Bureaucrat::GradeTooLowException ex)
 	{
-		std::cout << "Error: " << this->_name << "'s " << low.what() << std::endl;
+		std::cout << "Error: " << this->_name << "'s " << ex.what() << std::endl;
 	}
 }
 
