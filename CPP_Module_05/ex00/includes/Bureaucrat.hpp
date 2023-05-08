@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 09:59:45 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:02:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& rhs);
 		Bureaucrat& operator=(const Bureaucrat& rhs);
-		virtual ~Bureaucrat(void);
+		~Bureaucrat(void);
 
 		std::string		getName(void) const;
 		int				getGrade(void) const;
