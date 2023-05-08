@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:32:17 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 14:17:45 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:49:16 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,14 @@ RobotomyRequestForm::~RobotomyRequestForm(void)
 
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	if (this->getSigned() == false)
-		throw AForm::NotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
+	if (this->getSigned() == false)
+		throw AForm::NotSignedException();
+	std::cout << "...vrrrrrrrrr..." << std::endl;
+	std::srand(std::time(NULL));
+	if (std::rand() % 2 == 0)
+		std::cout << this->_target << " has been robotomized" << std::endl;
 	else
-	{
-		std::cout << "...vrrrrrrrrr..." << std::endl;
-		std::srand(std::time(NULL));
-		if (std::rand() % 2 == 0)
-			std::cout << this->_target << " has been robotomized" << std::endl;
-		else
-			std::cout << this->_target << "'s robotomy has failed!" << std::endl;
-	}
+		std::cout << this->_target << "'s robotomy has failed!" << std::endl;
 }
