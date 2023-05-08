@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 11:49:32 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:25:36 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	_name;
@@ -27,11 +27,11 @@ class Form
 		const int			_gradeToExecute;
 
 	public:
-		Form(void);
-		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
-		Form(const Form& rhs);
-		Form& operator=(const Form& rhs);
-		~Form(void);
+		AForm(void);
+		AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
+		AForm(const AForm& rhs);
+		AForm& operator=(const AForm& rhs);
+		virtual ~AForm(void);
 
 		std::string		getName(void) const;
 		bool			getSigned(void) const;
@@ -39,6 +39,7 @@ class Form
 		int				getGradeToExecute(void) const;
 
 		void			beSigned(Bureaucrat &bureaucrat);
+		virtual void	execute(const Bureaucrat &executor) const = 0;
 
 		class GradeTooHighException : public std::exception
 		{
@@ -52,6 +53,6 @@ class Form
 		};
 };
 
-std::ostream&	operator<<(std::ostream& o, const Form& rhs);
+std::ostream&	operator<<(std::ostream& o, const AForm& rhs);
 
 #endif

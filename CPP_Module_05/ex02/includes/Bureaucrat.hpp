@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 11:45:24 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:22:51 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define BREAUCRAT_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -36,7 +36,7 @@ class Bureaucrat
 
 		void			promoteGrade(void);
 		void			demoteGrade(void);
-		void			signForm(Form &form);
+		void			signForm(AForm &form);
 
 		class GradeTooHighException : public std::exception
 		{
