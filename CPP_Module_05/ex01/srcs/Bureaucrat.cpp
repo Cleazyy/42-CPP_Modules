@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 08:16:52 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 11:55:01 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,16 @@ void	Bureaucrat::demoteGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	} catch (std::exception &e) {
+		std::cout << this->_name << " coulnd't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 /* ************************************************************************** */
