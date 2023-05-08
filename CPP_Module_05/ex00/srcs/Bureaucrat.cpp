@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/05 18:17:49 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 07:48:25 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw()
 }
 
 /* ************************************************************************** */
-/*                                   Other                                    */
+/*                             Operators Overloads                            */
 /* ************************************************************************** */
 
 std::ostream&	operator<<(std::ostream& o, const Bureaucrat& rhs)
