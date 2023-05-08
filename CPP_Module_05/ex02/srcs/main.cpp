@@ -6,26 +6,25 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 12:21:16 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:11:54 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main(void)
 {
 	/* TEST 1 */
 	std::cout << "\033[1;34m" << "[ TEST 1 ]" << "\033[0m" << std::endl;
 	try {
-		Bureaucrat	bureaucrat("Bureaucrat", 42);
-		AForm		form("Contract", 42, 1);
+		Bureaucrat				bureaucrat("Bureaucrat", 5);
+		PresidentialPardonForm	form("President");
 
 		std::cout << std::endl;
-		std::cout << bureaucrat << std::endl;
-		std::cout << form << std::endl;
 		bureaucrat.signForm(form);
-		std::cout << form << std::endl;
+		bureaucrat.executeForm(form);
 		std::cout << std::endl;
 	}
 	catch (std::exception &e) {
