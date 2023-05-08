@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/05 12:57:41 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 08:16:52 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Bureaucrat
 
 		std::string		getName(void) const;
 		int				getGrade(void) const;
-		void			incrementGrade(void);
-		void			decrementGrade(void);
+		void			promoteGrade(void);
+		void			demoteGrade(void);
 
 		class GradeTooHighException : public std::exception
 		{
