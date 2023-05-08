@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 08:16:52 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 09:59:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat
 {
-	protected:
+	private:
 		const std::string	_name;
 		int					_grade;
 
