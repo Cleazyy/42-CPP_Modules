@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:32:17 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 13:56:48 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:17:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 /* ************************************************************************** */
 /*                               Canonical form                               */
 /* ************************************************************************** */
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("PresidentialPardonForm", 25, 5), _target("Default Target")
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45), _target("Default")
 {
-	// std::cout << "PresidentialPardonForm default constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	// std::cout << "PresidentialPardonForm setter default constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm setter default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs) : AForm(rhs), _target(rhs._target)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs) : AForm(rhs), _target(rhs._target)
 {
-	// std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& rhs)
+RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
 {
-	// std::cout << "PresidentialPardonForm copy assignment operator called" << std::endl;
+	// std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
 	(void) rhs;
 	return (*this);
 }
 
-PresidentialPardonForm::~PresidentialPardonForm(void)
+RobotomyRequestForm::~RobotomyRequestForm(void)
 {
 	// std::cout << "Bureaucrat destructor called" << std::endl;
 }
@@ -48,12 +48,19 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	if (this->getSigned() == false)
 		throw AForm::NotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
 	else
-		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	{
+		std::cout << "...vrrrrrrrrr..." << std::endl;
+		std::srand(std::time(NULL));
+		if (std::rand() % 2 == 0)
+			std::cout << this->_target << " has been robotomized" << std::endl;
+		else
+			std::cout << this->_target << "'s robotomy has failed!" << std::endl;
+	}
 }

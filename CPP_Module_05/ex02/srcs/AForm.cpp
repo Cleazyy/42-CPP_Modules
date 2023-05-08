@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 12:39:31 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:49:23 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 AForm::AForm(void) : _name("Default AForm"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
-	std::cout << "AForm default constructor called" << std::endl;
+	// std::cout << "AForm default constructor called" << std::endl;
 }
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-	std::cout << "AForm setter default constructor called" << std::endl;
+	// std::cout << "AForm setter default constructor called" << std::endl;
 	if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)
 		throw AForm::GradeTooHighException();
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
@@ -32,13 +32,13 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 
 AForm::AForm(const AForm& rhs) : _name(rhs._name), _signed(rhs._signed), _gradeToSign(rhs._gradeToSign), _gradeToExecute(rhs._gradeToExecute)
 {
-	std::cout << "AForm copy constructor called" << std::endl;
+	// std::cout << "AForm copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 AForm&	AForm::operator=(const AForm& rhs)
 {
-	std::cout << "AForm copy assignment operator called" << std::endl;
+	// std::cout << "AForm copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_signed = rhs._signed;
 	return (*this);
@@ -46,7 +46,7 @@ AForm&	AForm::operator=(const AForm& rhs)
 
 AForm::~AForm(void)
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	// std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
@@ -93,6 +93,11 @@ const char	*AForm::GradeTooHighException::what() const throw()
 const char	*AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
+}
+
+const char	*AForm::NotSignedException::what() const throw()
+{
+	return ("Form is not signed");
 }
 
 /* ************************************************************************** */

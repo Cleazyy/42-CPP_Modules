@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 12:25:36 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:15:41 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ class AForm
 				virtual const char	*what() const throw();
 		};
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+		class NotSignedException : public std::exception
 		{
 			public:
 				virtual const char	*what() const throw();

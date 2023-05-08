@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 13:03:28 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:20:33 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 
 Bureaucrat::Bureaucrat(void) : _name("Default Bureaucrat"), _grade(150)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	// std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Bureaucrat setter default constructor called" << std::endl;
+	// std::cout << "Bureaucrat setter default constructor called" << std::endl;
 	if (this->_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (this->_grade > 150)
@@ -32,13 +32,13 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat(const Bureaucrat& rhs) : _name(rhs._name)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	// std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 {
-	std::cout << "Bureaucrat copy assignment operator called" << std::endl;
+	// std::cout << "Bureaucrat copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_grade = rhs._grade;
 	return (*this);
@@ -46,7 +46,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	// std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
