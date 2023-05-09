@@ -6,11 +6,11 @@
 #    By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/02 13:24:04 by fluchten          #+#    #+#              #
-#    Updated: 2023/05/08 09:59:02 by fluchten         ###   ########.fr        #
+#    Updated: 2023/05/09 12:35:11 by fluchten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = form
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
