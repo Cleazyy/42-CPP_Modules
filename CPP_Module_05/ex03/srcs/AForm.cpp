@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 13:49:23 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:16:52 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ const char	*AForm::NotSignedException::what() const throw()
 
 std::ostream&	operator<<(std::ostream& o, const AForm& rhs)
 {
-	o << "AForm name: " << rhs.getName() << ", Signed: " << rhs.getSigned() << ", Sign grade: " << rhs.getGradeToSign() << ", Execute grade: " << rhs.getGradeToExecute();
+	o << "Form name: " << rhs.getName() << ", Signed: " << rhs.getSigned() << ", Sign grade: " << rhs.getGradeToSign() << ", Execute grade: " << rhs.getGradeToExecute();
 	return (o);
 }

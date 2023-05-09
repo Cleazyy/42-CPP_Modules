@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 12:27:53 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 14:32:40 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 07:36:51 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm& rhs);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
-		virtual ~ShrubberyCreationForm(void);
+		~ShrubberyCreationForm(void);
 
 		void	execute(const Bureaucrat &executor) const;
 };
