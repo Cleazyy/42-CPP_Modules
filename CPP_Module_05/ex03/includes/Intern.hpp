@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:07:14 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/09 10:13:42 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:22:58 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 class Intern
 {
 	private:
-		AForm	*_newPresidentialPardonForm(std::string target) const;
-		AForm	*_newRobotomyRequestForm(std::string target) const;
 		AForm	*_newShrubberyCreationForm(std::string target) const;
+		AForm	*_newRobotomyRequestForm(std::string target) const;
+		AForm	*_newPresidentialPardonForm(std::string target) const;
 
 	public:
 		Intern(void);
