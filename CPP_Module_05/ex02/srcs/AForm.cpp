@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/09 10:17:04 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:04:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	AForm::getGradeToExecute(void) const
 	return (this->_gradeToExecute);
 }
 
-void	AForm::beSigned(Bureaucrat &bureaucrat)
+void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw AForm::GradeTooLowException();

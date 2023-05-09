@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:22 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/09 13:01:26 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:08:05 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat
 
 		void			promoteGrade(void);
 		void			demoteGrade(void);
-		void			signForm(Form &form) const;
+		void			signForm(Form &form);
 
 		class GradeTooHighException : public std::exception
 		{

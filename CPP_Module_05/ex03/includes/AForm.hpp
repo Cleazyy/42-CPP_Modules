@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 13:15:41 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:04:18 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class AForm
 		int				getGradeToSign(void) const;
 		int				getGradeToExecute(void) const;
 
-		void			beSigned(Bureaucrat &bureaucrat);
+		void			beSigned(const Bureaucrat &bureaucrat);
 		virtual void	execute(const Bureaucrat &executor) const = 0;
 
 		class GradeTooHighException : public std::exception

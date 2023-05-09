@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 11:49:32 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:03:59 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form
 		int				getGradeToSign(void) const;
 		int				getGradeToExecute(void) const;
 
-		void			beSigned(Bureaucrat &bureaucrat);
+		void			beSigned(const Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{
