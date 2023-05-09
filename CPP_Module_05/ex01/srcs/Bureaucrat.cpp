@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 18:23:18 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/08 11:55:01 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:01:38 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	Bureaucrat::demoteGrade(void)
 		this->_grade++;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(Form &form) const
 {
 	try {
 		form.beSigned(*this);
