@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 09:56:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/09 13:04:05 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/10 07:34:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExecu
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form& rhs) : _name(rhs._name), _signed(rhs._signed), _gradeToSign(rhs._gradeToSign), _gradeToExecute(rhs._gradeToExecute)
+Form::Form(const Form& rhs) : _name(rhs._name), _gradeToSign(rhs._gradeToSign), _gradeToExecute(rhs._gradeToExecute)
 {
 	std::cout << "Form copy constructor called" << std::endl;
 	*this = rhs;
