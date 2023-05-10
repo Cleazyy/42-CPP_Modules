@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 15:07:23 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/09 10:29:06 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/10 08:05:14 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ AForm	*Intern::makeForm(std::string name, std::string target) const
 		default:
 			throw Intern::UnknownFormException();
 	}
-	return (NULL);
 }
 
 /* ************************************************************************** */
