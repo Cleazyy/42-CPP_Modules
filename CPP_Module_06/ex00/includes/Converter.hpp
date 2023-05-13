@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/13 16:25:09 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/13 20:49:20 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ enum e_type
 	INT,
 	FLOAT,
 	DOUBLE,
+	SPECIAL,
 	INVALID
 };
 
@@ -30,21 +31,24 @@ class Converter
 		const std::string	_nb;
 		e_type				_type;
 
+		int		_strToInt(std::string str, int *overflow);
+
 		bool	_isChar(void);
 		bool	_isInt(void);
 		bool	_isFloat(void);
 		bool	_isDouble(void);
+		bool	_isSpecial(void);
 
 		void	_convertChar(void);
 		void	_convertInt(void);
 		void	_convertFloat(void);
 		void	_convertDouble(void);
 
-		void	_displayChar(char resChar);
-		void	_displayInt(int resInt);
-		void	_displayFloat(float resFloat);
-		void	_displayDouble(double resDouble);
-		void	_display(char resChar, int resInt, float resFloat, double resDouble);
+		void	_displayChar(char c);
+		void	_displayInt(int nb);
+		void	_displayFloat(float nb);
+		void	_displayDouble(double nb);
+		void	_displaySpecial(void);
 
 	public:
 		Converter(void);
@@ -54,19 +58,6 @@ class Converter
 		~Converter(void);
 
 		void	execute(void);
-
-		class InvalidTypeException : public std::exception
-		{
-			public:
-				virtual const char	*what() const throw();
-		};
-		class OverflowException : public std::exception
-		{
-			public:
-				virtual const char	*what() const throw();
-		};
 };
-
-std::ostream&	operator<<(std::ostream& o, const Converter& rhs);
 
 #endif
