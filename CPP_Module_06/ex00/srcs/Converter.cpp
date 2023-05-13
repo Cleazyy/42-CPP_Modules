@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:28 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/13 20:48:17 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/13 21:05:31 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ Converter::Converter(const Converter& rhs) : _nb(rhs._nb)
 Converter&	Converter::operator=(const Converter& rhs)
 {
 	// std::cout << "Converter copy assignment operator called" << std::endl;
-	(void) rhs;
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 
