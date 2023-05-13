@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:03:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/10 18:25:24 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/13 11:17:43 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	main(int ac, char **av)
 	Converter	converter(input);
 
 	converter.execute();
+
+	// float test = .23;
+	// std::cout << test << std::endl;
 
 	return (0);
 }
