@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/14 09:31:38 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:48:42 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ class Converter
 		static void		displaySpecial(std::string str);
 
 		Converter(void);
-		Converter(const std::string nb);
 		Converter(const Converter &rhs);
 		Converter &operator=(const Converter &rhs);
 		~Converter(void);
