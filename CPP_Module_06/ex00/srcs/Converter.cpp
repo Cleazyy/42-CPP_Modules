@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:28 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/14 09:32:03 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/14 09:48:01 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ void	Converter::convertInt(std::string str)
 		std::cout << "Invalid number: int overflow" << std::endl;
 		return ;
 	}
-	displayChar(static_cast<int>(nb));
+	displayChar(static_cast<char>(nb));
 	displayInt(nb);
 	displayFloat(static_cast<float>(nb));
 	displayDouble(static_cast<double>(nb));
