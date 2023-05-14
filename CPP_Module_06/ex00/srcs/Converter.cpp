@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:28 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/13 21:05:31 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/14 09:32:03 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,52 +16,34 @@
 /*                               Canonical form                               */
 /* ************************************************************************** */
 
-Converter::Converter(void) : _nb("0")
+Converter::Converter(void)
 {
-	// std::cout << "Converter default constructor called" << std::endl;
+	std::cout << "Converter default constructor called" << std::endl;
 }
 
-Converter::Converter(const std::string nb) : _nb(nb)
+Converter::Converter(const Converter &rhs)
 {
-	// std::cout << "Converter constructor called" << std::endl;
-	if (this->_isChar())
-		this->_type = CHAR;
-	else if (this->_isInt())
-		this->_type = INT;
-	else if (this->_isFloat())
-		this->_type = FLOAT;
-	else if (this->_isDouble())
-		this->_type = DOUBLE;
-	else if (this->_isSpecial())
-		this->_type = SPECIAL;
-	else
-		this->_type = INVALID;
-}
-
-Converter::Converter(const Converter& rhs) : _nb(rhs._nb)
-{
-	// std::cout << "Converter copy constructor called" << std::endl;
+	std::cout << "Converter copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-Converter&	Converter::operator=(const Converter& rhs)
+Converter	&Converter::operator=(const Converter &rhs)
 {
-	// std::cout << "Converter copy assignment operator called" << std::endl;
-	if (this != &rhs)
-		this->_type = rhs._type;
+	std::cout << "Converter copy assignment operator called" << std::endl;
+	(void) rhs;
 	return (*this);
 }
 
 Converter::~Converter(void)
 {
-	// std::cout << "Converter destructor called" << std::endl;
+	std::cout << "Converter destructor called" << std::endl;
 }
 
 /* ************************************************************************** */
 /*                          Private Member functions                          */
 /* ************************************************************************** */
 
-int		Converter::_strToInt(std::string str, int *overflow)
+int		Converter::strToInt(std::string str, int *overflow)
 {
 	long	res = 0;
 	int		sign = 1;
@@ -85,58 +67,77 @@ int		Converter::_strToInt(std::string str, int *overflow)
 	return (sign * static_cast<int>(res));
 }
 
-bool	Converter::_isChar(void)
+e_type	Converter::getType(std::string str)
 {
-	return (this->_nb.size() == 1 && !std::isdigit(this->_nb[0]));
+	e_type type;
+
+	if (isChar(str))
+		type = CHAR;
+	else if (isInt(str))
+		type = INT;
+	else if (isFloat(str))
+		type = FLOAT;
+	else if (isDouble(str))
+		type = DOUBLE;
+	else if (isSpecial(str))
+		type = SPECIAL;
+	else
+		type = INVALID;
+	return (type);
 }
 
-bool	Converter::_isInt(void)
+bool	Converter::isChar(std::string str)
+{
+	return (str.size() == 1 && !std::isdigit(str[0]));
+}
+
+bool	Converter::isInt(std::string str)
 {
 	int i = 0;
 
-	if (this->_nb[0] == '+' || this->_nb[0] == '-')
+	if (str[0] == '+' || str[0] == '-')
 		i++;
-	while (this->_nb[i])
+	while (str[i])
 	{
-		if (!std::isdigit(this->_nb[i]))
+		if (!std::isdigit(str[i]))
 			return (false);
 		i++;
 	}
 	return (true);
 }
 
-bool	Converter::_isFloat(void)
+bool	Converter::isFloat(std::string str)
 {
 	size_t	i = 0;
 	int		points_nb = 0;
 
-	if (this->_nb[0] == '+' || this->_nb[0] == '-')
+	if (str[0] == '+' || str[0] == '-')
 		i++;
-	while (i < this->_nb.length() - 1)
+	while (i < str.length() - 1)
 	{
-		if (!std::isdigit(this->_nb[i]) && this->_nb[i] != '.')
+		if (!std::isdigit(str[i]) && str[i] != '.')
 			return (false);
-		if (this->_nb[i] == '.')
+		if (str[i] == '.')
 			points_nb++;
 		i++;
 	}
-	if (points_nb != 1 || this->_nb[this->_nb.length() - 1] != 'f')
+	if (points_nb != 1 || str[str.length() - 1] != 'f')
 		return (false);
 	return (true);
 }
 
-bool	Converter::_isDouble(void)
+bool	Converter::isDouble(std::string str)
 {
 	size_t	i = 0;
 	int		points_nb = 0;
 
-	if (this->_nb[0] == '+' || this->_nb[0] == '-')
+	if (str[0] == '+' || str[0] == '-')
 		i++;
-	while (i < this->_nb.length())
+	while (i < str.length())
 	{
-		if (!std::isdigit(this->_nb[i]) && this->_nb[i] != '.')
+		if (!std::isdigit(str[i]) && str[i] != '.')
 			return (false);
-		if (this->_nb[i] == '.')
+		if (str[i] == '.')
 			points_nb++;
 		i++;
 	}
@@ -145,69 +146,69 @@ bool	Converter::_isDouble(void)
 	return (true);
 }
 
-bool	Converter::_isSpecial(void)
+bool	Converter::isSpecial(std::string str)
 {
-	if (this->_nb == "-inff" || this->_nb == "+inff" || this->_nb == "nanf")
+	if (str == "-inff" || str == "+inff" || str == "nanf")
 		return (true);
-	else if (this->_nb == "-inf" || this->_nb == "+inf" || this->_nb == "nan")
+	else if (str == "-inf" || str == "+inf" || str == "nan")
 		return (true);
 	return (false);
 }
 
-void	Converter::_convertChar(void)
+void	Converter::convertChar(std::string str)
 {
-	char c = this->_nb[0];
+	char c = str[0];
 
-	this->_displayChar(c);
-	this->_displayInt(static_cast<int>(c));
-	this->_displayFloat(static_cast<float>(c));
-	this->_displayDouble(static_cast<double>(c));
+	displayChar(c);
+	displayInt(static_cast<int>(c));
+	displayFloat(static_cast<float>(c));
+	displayDouble(static_cast<double>(c));
 }
 
-void	Converter::_convertInt(void)
+void	Converter::convertInt(std::string str)
 {
 	int	overflow = 0;
-	int	nb = this->_strToInt(this->_nb, &overflow);
+	int	nb = strToInt(str, &overflow);
 	if (overflow != 0)
 	{
 		std::cout << "Invalid number: int overflow" << std::endl;
 		return ;
 	}
-	this->_displayChar(static_cast<int>(nb));
-	this->_displayInt(nb);
-	this->_displayFloat(static_cast<float>(nb));
-	this->_displayDouble(static_cast<double>(nb));
+	displayChar(static_cast<int>(nb));
+	displayInt(nb);
+	displayFloat(static_cast<float>(nb));
+	displayDouble(static_cast<double>(nb));
 }
 
-void	Converter::_convertFloat(void)
+void	Converter::convertFloat(std::string str)
 {
-	float nb = std::strtof(this->_nb.c_str(), NULL);
+	float nb = std::strtof(str.c_str(), NULL);
 	if (errno == ERANGE)
 	{
 		std::cout << "Invalid number: float overflow" << std::endl;
 		return ;
 	}
-	this->_displayChar(static_cast<char>(nb));
-	this->_displayInt(static_cast<int>(nb));
-	this->_displayFloat(nb);
-	this->_displayDouble(static_cast<double>(nb));
+	displayChar(static_cast<char>(nb));
+	displayInt(static_cast<int>(nb));
+	displayFloat(nb);
+	displayDouble(static_cast<double>(nb));
 }
 
-void	Converter::_convertDouble(void)
+void	Converter::convertDouble(std::string str)
 {
-	double nb = std::strtod(this->_nb.c_str(), NULL);
+	double nb = std::strtod(str.c_str(), NULL);
 	if (errno == ERANGE)
 	{
 		std::cout << "Invalid number: double overflow" << std::endl;
 		return ;
 	}
-	this->_displayChar(static_cast<char>(nb));
-	this->_displayInt(static_cast<int>(nb));
-	this->_displayFloat(static_cast<float>(nb));
-	this->_displayDouble(nb);
+	displayChar(static_cast<char>(nb));
+	displayInt(static_cast<int>(nb));
+	displayFloat(static_cast<float>(nb));
+	displayDouble(nb);
 }
 
-void	Converter::_displayChar(char c)
+void	Converter::displayChar(char c)
 {
 	std::cout << "char: ";
 	if (std::isprint(c)) 
@@ -216,13 +217,13 @@ void	Converter::_displayChar(char c)
 		std::cout << "Non displayable" << std::endl;
 }
 
-void	Converter::_displayInt(int nb)
+void	Converter::displayInt(int nb)
 {
 	std::cout << "int: ";
 	std::cout << nb << std::endl;
 }
 
-void	Converter::_displayFloat(float nb)
+void	Converter::displayFloat(float nb)
 {
 	std::cout << "float: ";
 	if (nb == static_cast<int>(nb))
@@ -231,7 +232,7 @@ void	Converter::_displayFloat(float nb)
 		 std::cout << nb << "f" << std::endl;
 }
 
-void	Converter::_displayDouble(double nb)
+void	Converter::displayDouble(double nb)
 {
 	std::cout << "double: ";;
 	if (nb == static_cast<int>(nb))
@@ -240,21 +241,21 @@ void	Converter::_displayDouble(double nb)
 		 std::cout << nb << std::endl;
 }
 
-void	Converter::_displaySpecial(void)
+void	Converter::displaySpecial(std::string str)
 {
 	std::cout << "char: " << "impossible" << std::endl;
 	std::cout << "int: " << "impossible" << std::endl;
-	if (this->_nb == "-inff" || this->_nb == "-inf")
+	if (str == "-inff" || str == "-inf")
 	{
 		std::cout << "float: " << "-inff" << std::endl;
 		std::cout << "double: " << "-inf" << std::endl;
 	}
-	else if (this->_nb == "+inff" || this->_nb == "+inf")
+	else if (str == "+inff" || str == "+inf")
 	{
 		std::cout << "float: " << "+inff" << std::endl;
 		std::cout << "double: " << "+inf" << std::endl;
 	}
-	else if (this->_nb == "nanf" || this->_nb == "nan")
+	else if (str == "nanf" || str == "nan")
 	{
 		std::cout << "float: " << "nanf" << std::endl;
 		std::cout << "double: " << "nan" << std::endl;
@@ -265,24 +266,26 @@ void	Converter::_displaySpecial(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	Converter::execute(void)
+void	Converter::execute(std::string str)
 {
-	switch (this->_type)
+	e_type type = getType(str);
+
+	switch (type)
 	{
 		case CHAR:
-			this->_convertChar();
+			convertChar(str);
 			break;
 		case INT:
-			this->_convertInt();
+			convertInt(str);
 			break;
 		case FLOAT:
-			this->_convertFloat();
+			convertFloat(str);
 			break;
 		case DOUBLE:
-			this->_convertDouble();
+			convertDouble(str);
 			break;
 		case SPECIAL:
-			this->_displaySpecial();
+			displaySpecial(str);
 			break;
 		default:
 			std::cout << "Invalid number: unknown type!" << std::endl;
