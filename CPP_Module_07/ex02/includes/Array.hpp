@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/15 17:45:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/15 20:16:02 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,27 @@ class Array
 		{
 			delete [] this->_array;
 		}
+
+		T& operator[](unsigned int index)
+		{
+			if (index >= this->_size) {
+				throw IndexOutOfRangeException();
+			}
+			return (this->_array[index]);
+		}
+
+		unsigned int size(void) const
+		{
+			return (this->_size);
+		}
+
+		class IndexOutOfRangeException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw() {
+					return ("Index out of range");
+				}
+		};
 };
 
 #endif
