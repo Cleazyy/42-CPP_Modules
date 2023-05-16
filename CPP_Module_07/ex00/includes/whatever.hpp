@@ -6,12 +6,12 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/14 16:53:54 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:21:06 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
-# define WHATEVER_HPP 
+# define WHATEVER_HPP
 
 template<typename T>
 void swap(T &a, T &b)
