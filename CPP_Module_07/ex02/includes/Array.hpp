@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 18:01:26 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/16 10:47:05 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/17 07:46:53 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Array
 			delete [] this->_array;
 		}
 
-		T& operator[](unsigned int index)
+		T &operator[](unsigned int index)
 		{
 			if (index >= this->_size) {
 				throw IndexOutOfRangeException();
