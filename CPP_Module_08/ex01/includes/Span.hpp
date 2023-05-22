@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:26:11 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/22 20:28:21 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/22 20:51:31 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <algorithm>
+# include <vector>
 
 class Span
 {
