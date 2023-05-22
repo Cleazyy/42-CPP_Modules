@@ -6,13 +6,13 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:43:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/22 22:35:35 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/22 22:36:14 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
-/* int	main(void)
+int	main(void)
 {
 	MutantStack<int> mstack;
 
@@ -44,9 +44,9 @@
 	std::stack<int> s(mstack);
 
 	return (0);
-} */
+}
 
-int	main(void)
+/* int	main(void)
 {
 	std::vector<int> mVector;
 
@@ -68,4 +68,4 @@ int	main(void)
 	}
 
 	return (0);
-}
+} */
