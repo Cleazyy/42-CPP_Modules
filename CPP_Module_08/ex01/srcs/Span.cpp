@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/22 20:43:23 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/23 19:46:04 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ Span &Span::operator=(const Span &rhs)
 		this->_N = rhs._N;
 		this->_numbers = rhs._numbers;
 	}
-	(void) rhs;
 	return (*this);
 }
 
