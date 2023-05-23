@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:26:11 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/22 21:56:40 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/23 18:14:41 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <stack>
 # include <iterator>
+# include <vector>
 
 template<typename T>
 class MutantStack : public std::stack<T>
