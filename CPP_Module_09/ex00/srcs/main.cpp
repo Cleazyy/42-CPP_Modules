@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:43:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/23 19:32:31 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:04:53 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ int	main(int ac, char **av)
 		return (1);
 	}
 
+	try {
+		BitcoinExchange btc;
+
+		btc.printDatabase();
+	}
+	catch (std::exception &e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 	(void) av;
 
 	return (0);
