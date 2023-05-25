@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:26:11 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/24 16:03:15 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:53:44 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, float> _database;
-		std::string _databaseFile;
 
 		void _parseDatabase(void);
+		bool _isValidDateFormat(const std::string &date);
+		std::string _parseDate(std::string &str);
+		std::string _trimWhiteSpaces(std::string &str);
 
 	public:
 		BitcoinExchange(void);
@@ -32,6 +34,7 @@ class BitcoinExchange
 		BitcoinExchange &operator=(const BitcoinExchange &rhs);
 		~BitcoinExchange(void);
 
+		void execute(std::string input);
 		void printDatabase(void) const;
 };
 
