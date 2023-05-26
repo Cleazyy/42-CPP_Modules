@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 12:12:52 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:18:19 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ float BitcoinExchange::_getValue(std::string &date)
 {
     std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
 	if (it == this->_database.begin()) {
-		return (1);
+		return (-1);
 	}
 	else if (it == this->_database.end() || it->first != date) {
 		--it;
@@ -238,7 +238,8 @@ void BitcoinExchange::execute(std::string input)
 			exchange_rate = this->_getValue(date);
 			std::cout << date << " => ";
 			std::cout << value << " = ";
-			std::cout << value * exchange_rate << std::endl;
+			std::cout << value * exchange_rate;
+			std::cout << "              value: " << value << " rate: " << exchange_rate << std::endl;
 		}
 		else {
 			std::cout << "Error: bad input => " << date << std::endl;
