@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 15:16:46 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:27:56 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,14 +185,14 @@ void BitcoinExchange::_parseDatabase(void)
 {
 	std::ifstream databaseFile("data.csv");
 	if (!databaseFile.is_open()) {
-		throw std::runtime_error("failed to open data.csv");
+		throw std::runtime_error("failed to open data.csv.");
 	}
 
 	std::string line, date, value;
 	if (std::getline(databaseFile, line))
 	{
 		if (line.compare("date,exchange_rate")) {
-			throw std::runtime_error("invalid data.csv file header"); 
+			throw std::runtime_error("invalid data.csv file header."); 
 		}
 	}
 	while (std::getline(databaseFile, line))
@@ -201,12 +201,15 @@ void BitcoinExchange::_parseDatabase(void)
 
 		if (std::getline(ss, date, ',') && std::getline(ss, value)) {
 			if (this->_isValidDateFormat(date) == false) {
-				throw std::runtime_error("data.csv contains invalid dates");
+				throw std::runtime_error("data.csv contains invalid dates.");
+			}
+			if (this->_isValidValueFormat(value) == false) {
+				throw std::runtime_error("data.csv contains invalid values.");
 			}
 			this->_database[date] = std::strtof(value.c_str(), NULL);
 		}
 		else {
-			throw std::runtime_error("invalid data.csv file format");
+			throw std::runtime_error("invalid data.csv file format.");
 		}
 	}
 	databaseFile.close();
@@ -220,7 +223,7 @@ void BitcoinExchange::executeFile(std::string input)
 {
 	std::ifstream inputFile(input);
 	if (!inputFile.is_open()) {
-		throw std::runtime_error("failed to open input file");
+		throw std::runtime_error("failed to open input file.");
 	}
 
 	float value, exchangeRate;
@@ -228,7 +231,7 @@ void BitcoinExchange::executeFile(std::string input)
 	if (std::getline(inputFile, line))
 	{
 		if (line.compare("date | value")) {
-			throw std::runtime_error("invalid input file header"); 
+			throw std::runtime_error("invalid input file header."); 
 		}
 	}
 	while (std::getline(inputFile, line))
