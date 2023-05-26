@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 12:18:19 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:16:46 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 BitcoinExchange::BitcoinExchange(void)
 {
-	this->_parseDatabase();
 	// std::cout << "BitcoinExchange default constructor called" << std::endl;
+	this->_parseDatabase();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &rhs)
@@ -120,6 +120,67 @@ bool BitcoinExchange::_isValidValueFormat(std::string &str)
 	return (true);
 }
 
+float BitcoinExchange::_getValue(std::string &date)
+{
+    std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
+    if (it == this->_database.end()) {
+		if (this->_database.empty()) {
+			std::cout << "Error: empty database." << std::endl;
+			return (-1);
+		}
+		--it;
+	}
+    else if (it->first != date) {
+		if (it == this->_database.begin()) {
+			std::cout << "Error: date prior to the creation of bitcoin." << std::endl;
+			return (-1);
+		} 
+		--it;
+    }
+	return (it->second);
+}
+
+std::string BitcoinExchange::_parseDate(std::string &str)
+{
+	std::string date = this->_trimWhiteSpaces(str);
+	if (date.empty()) {
+		std::cout << "Error: empty date." << std::endl;
+		return (date);
+	}
+	if (this->_isValidDateFormat(date) == false) {
+		std::cout << "Error: invalid date format." << std::endl;
+		return ("");
+	}
+	return (date);
+}
+
+float BitcoinExchange::_parseValue(std::string &str)
+{
+	std::string nb = this->_trimWhiteSpaces(str);
+	if (nb.empty()) {
+		std::cout << "Error: empty number." << std::endl;
+		return (-1);
+	}
+	if (this->_isValidValueFormat(nb) == false) {
+		std::cout << "Error: invalid number format." << std::endl;
+		return (-1);
+	}
+	float value = std::strtof(nb.c_str(), NULL);
+	if (errno == ERANGE) {
+		std::cout << "Error: number overflow." << std::endl;
+		return (-1);
+	}
+	if (value < 0) {
+		std::cout << "Error: not a positive number." << std::endl;
+		return (-1);
+	}
+	if (value > 1000) {
+		std::cout << "Error: too large a number." << std::endl;
+		return (-1);
+	}
+	return (value);
+}
+
 void BitcoinExchange::_parseDatabase(void)
 {
 	std::ifstream databaseFile("data.csv");
@@ -151,71 +212,18 @@ void BitcoinExchange::_parseDatabase(void)
 	databaseFile.close();
 }
 
-std::string BitcoinExchange::_parseDate(std::string &str)
-{
-	std::string date = this->_trimWhiteSpaces(str);
-	if (date.empty()) {
-		std::cout << "Error: invalid date format => empty" << std::endl;
-		return (date);
-	}
-	if (this->_isValidDateFormat(date) == false) {
-		std::cout << "Error: invalid date format => " << date << std::endl;
-		return ("");
-	}
-	return (date);
-}
-
-float BitcoinExchange::_parseValue(std::string &str)
-{
-	std::string nb = this->_trimWhiteSpaces(str);
-	if (nb.empty()) {
-		std::cout << "Error: invalid number format => empty" << std::endl;
-		return (-1);
-	}
-	if (this->_isValidValueFormat(nb) == false) {
-		std::cout << "Error: invalid number format => " << nb << std::endl;
-		return (-1);
-	}
-	float value = std::strtof(nb.c_str(), NULL);
-	if (errno == ERANGE) {
-		std::cout << "Error: float overflow" << std::endl;
-		return (-1);
-	}
-	if (value < 0) {
-		std::cout << "Error: not a positive number." << std::endl;
-		return (-1);
-	}
-	if (value > 1000) {
-		std::cout << "Error: too large a number." << std::endl;
-		return (-1);
-	}
-	return (value);
-}
-
-float BitcoinExchange::_getValue(std::string &date)
-{
-    std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
-	if (it == this->_database.begin()) {
-		return (-1);
-	}
-	else if (it == this->_database.end() || it->first != date) {
-		--it;
-    }
-	return (it->second);
-}
-
 /* ************************************************************************** */
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void BitcoinExchange::execute(std::string input)
+void BitcoinExchange::executeFile(std::string input)
 {
 	std::ifstream inputFile(input);
 	if (!inputFile.is_open()) {
 		throw std::runtime_error("failed to open input file");
 	}
 
-	float value, exchange_rate;
+	float value, exchangeRate;
 	std::string line, date, nb;
 	if (std::getline(inputFile, line))
 	{
@@ -235,12 +243,12 @@ void BitcoinExchange::execute(std::string input)
 			value = this->_parseValue(nb);
 			if (value < 0)
 				continue ;
-			exchange_rate = this->_getValue(date);
+			exchangeRate = this->_getValue(date);
+			if (exchangeRate < 0)
+				continue ;
 			std::cout << date << " => ";
 			std::cout << value << " = ";
-			std::cout << value * exchange_rate;
-			std::cout << "              value: " << value << " rate: " << exchange_rate << std::endl;
-		}
+			std::cout << value * exchangeRate << std::endl;		}
 		else {
 			std::cout << "Error: bad input => " << date << std::endl;
 		}

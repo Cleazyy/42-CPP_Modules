@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:43:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 12:12:37 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 14:14:17 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		BitcoinExchange btc;
 
 		std::string input = av[1];
-		btc.execute(input);
+		btc.executeFile(input);
 	}
 	catch (std::exception &e) {
 		std::cout << "Error: " << e.what() << std::endl;
