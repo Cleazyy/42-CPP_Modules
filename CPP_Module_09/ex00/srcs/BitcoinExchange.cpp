@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/25 22:48:47 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:10:58 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ std::string BitcoinExchange::_trimWhiteSpaces(std::string &str)
 	return (str.substr(first, last - first + 1));
 }
 
-bool BitcoinExchange::_isValidDateFormat(const std::string &str)
+bool BitcoinExchange::_isValidDateFormat(std::string &str)
 {
 	if (str.length() != 10)
 		return (false);
@@ -100,7 +100,7 @@ bool BitcoinExchange::_isValidDateFormat(const std::string &str)
 	return (true);
 }
 
-bool BitcoinExchange::_isValidValueFormat(const std::string &str)
+bool BitcoinExchange::_isValidValueFormat(std::string &str)
 {
 	size_t i = 0;
 	int points_nb = 0;
@@ -192,6 +192,18 @@ float BitcoinExchange::_parseValue(std::string &str)
 	return (value);
 }
 
+float BitcoinExchange::_getValue(std::string &date)
+{
+    std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
+	if (it == this->_database.begin()) {
+		return (1);
+	}
+	else if (it == this->_database.end() || it->first != date) {
+		--it;
+    }
+	return (it->second);
+}
+
 /* ************************************************************************** */
 /*                          Public Member functions                           */
 /* ************************************************************************** */
@@ -203,7 +215,7 @@ void BitcoinExchange::execute(std::string input)
 		throw std::runtime_error("failed to open input file");
 	}
 
-	float value;
+	float value, exchange_rate;
 	std::string line, date, nb;
 	if (std::getline(inputFile, line))
 	{
@@ -223,8 +235,10 @@ void BitcoinExchange::execute(std::string input)
 			value = this->_parseValue(nb);
 			if (value < 0)
 				continue ;
+			exchange_rate = this->_getValue(date);
 			std::cout << date << " => ";
-			std::cout << value << " = " << std::endl;
+			std::cout << value << " = ";
+			std::cout << value * exchange_rate << std::endl;
 		}
 		else {
 			std::cout << "Error: bad input => " << date << std::endl;
