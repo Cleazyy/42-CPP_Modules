@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 12:10:58 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:12:52 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,13 +245,4 @@ void BitcoinExchange::execute(std::string input)
 		}
 	}
 	inputFile.close();
-}
-
-void BitcoinExchange::printDatabase(void) const
-{
-    std::map<std::string, float>::const_iterator iter;
-
-    for (iter = _database.begin(); iter != _database.end(); ++iter) {
-        std::cout << "Date: " << iter->first << ", Value: " << iter->second << std::endl;
-    }
 }

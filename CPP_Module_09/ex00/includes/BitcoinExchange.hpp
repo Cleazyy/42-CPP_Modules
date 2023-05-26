@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:26:11 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/26 12:10:58 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/26 12:12:48 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ class BitcoinExchange
 		~BitcoinExchange(void);
 
 		void execute(std::string input);
-		void printDatabase(void) const;
 };
 
 #endif
