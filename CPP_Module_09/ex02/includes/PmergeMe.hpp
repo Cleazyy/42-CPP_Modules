@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:26:11 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/27 19:33:41 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/27 20:51:14 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class PmergeMe
 
 		bool _isInt(char *str);
 		void _parseInput(int ac, char **av);
+		void _mergeVector(int left, int middle, int right);
+		void _mergeSortVector(int left, int right);
 
 	public:
 		PmergeMe(void);
@@ -33,6 +35,9 @@ class PmergeMe
 		PmergeMe(const PmergeMe &rhs);
 		PmergeMe &operator=(const PmergeMe &rhs);
 		~PmergeMe(void);
+
+		void sortVector(void);
+		void sortDeque(void);
 };
 
 #endif
