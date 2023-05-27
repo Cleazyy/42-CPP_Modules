@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/27 21:20:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/27 22:23:29 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,12 +146,20 @@ void PmergeMe::sortVector(void)
 	int left = 0;
 	int right = this->_vector.size() - 1;
 
+	std::clock_t start_time = std::clock();
+
 	this->_mergeSortVector(left, right);
+
+	std::clock_t end_time = std::clock();
+    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000000.0;
+
 	std::cout << "After:  ";
 	for (std::vector<int>::const_iterator it = this->_vector.begin(); it != this->_vector.end(); ++it) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+
+	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << elapsed_time << " us" << std::endl;
 }
 
 void PmergeMe::sortDeque(void)
