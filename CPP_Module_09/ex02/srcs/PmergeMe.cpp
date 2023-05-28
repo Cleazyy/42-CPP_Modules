@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 20:17:06 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:34:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,7 +252,10 @@ void PmergeMe::sortVector(void)
 
 	std::cout << "After:  ";
 	for (std::vector<int>::const_iterator it = this->_vector.begin(); it != this->_vector.end(); ++it) {
-		std::cout << *it << " ";
+		std::cout << *it;
+		if (it != this->_vector.end() - 1) {
+			std::cout << ' ';
+		}
 	}
 	std::cout << std::endl;
 
