@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 17:07:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 21:01:20 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,26 +120,6 @@ bool BitcoinExchange::_isValidValueFormat(std::string &str)
 	return (true);
 }
 
-float BitcoinExchange::_getValue(std::string &date)
-{
-    std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
-    if (it == this->_database.end()) {
-		if (this->_database.empty()) {
-			std::cout << "Error: empty database." << std::endl;
-			return (-1);
-		}
-		--it;
-	}
-    else if (it->first != date) {
-		if (it == this->_database.begin()) {
-			std::cout << "Error: date prior to the creation of bitcoin." << std::endl;
-			return (-1);
-		} 
-		--it;
-    }
-	return (it->second);
-}
-
 std::string BitcoinExchange::_parseDate(std::string &str)
 {
 	std::string date = this->_trimWhiteSpaces(str);
@@ -179,6 +159,26 @@ float BitcoinExchange::_parseValue(std::string &str)
 		return (-1);
 	}
 	return (value);
+}
+
+float BitcoinExchange::_getValue(std::string &date)
+{
+    std::map<std::string, float>::const_iterator it = this->_database.lower_bound(date);
+    if (it == this->_database.end()) {
+		if (this->_database.empty()) {
+			std::cout << "Error: empty database." << std::endl;
+			return (-1);
+		}
+		--it;
+	}
+    else if (it->first != date) {
+		if (it == this->_database.begin()) {
+			std::cout << "Error: date prior to the creation of bitcoin." << std::endl;
+			return (-1);
+		} 
+		--it;
+    }
+	return (it->second);
 }
 
 void BitcoinExchange::_parseDatabase(void)
