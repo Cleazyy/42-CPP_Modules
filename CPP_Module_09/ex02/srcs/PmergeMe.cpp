@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 20:34:45 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:57:03 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,7 +248,7 @@ void PmergeMe::sortVector(void)
 	this->_mergeSortVector(left, right);
 
 	std::clock_t end_time = std::clock();
-    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000000.0;
+    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000;
 
 	std::cout << "After:  ";
 	for (std::vector<int>::const_iterator it = this->_vector.begin(); it != this->_vector.end(); ++it) {
@@ -259,7 +259,7 @@ void PmergeMe::sortVector(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << elapsed_time << " us" << std::endl;
+	std::cout << "Time to process a range of " << this->_vector.size() << " elements with std::vector: " << elapsed_time << " ms" << std::endl;
 }
 
 void PmergeMe::sortDeque(void)
@@ -272,7 +272,7 @@ void PmergeMe::sortDeque(void)
 	this->_mergeSortDeque(left, right);
 
 	std::clock_t end_time = std::clock();
-    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000000.0;
+    double elapsed_time = static_cast<double>(end_time - start_time) / CLOCKS_PER_SEC * 1000;
 
-	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque: " << elapsed_time << " us" << std::endl;
+	std::cout << "Time to process a range of " << this->_deque.size() << " elements with std::deque: " << elapsed_time << " ms" << std::endl;
 }
