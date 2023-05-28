@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 11:35:16 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 17:07:55 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,7 +251,8 @@ void BitcoinExchange::executeFile(std::string input)
 				continue ;
 			std::cout << date << " => ";
 			std::cout << value << " = ";
-			std::cout << value * exchangeRate << std::endl;		}
+			std::cout << value * exchangeRate << std::endl;
+		}
 		else {
 			std::cout << "Error: bad input => " << date << std::endl;
 		}
