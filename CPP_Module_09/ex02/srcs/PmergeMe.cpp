@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 11:25:03 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 20:17:06 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,7 +221,7 @@ void PmergeMe::_mergeDeque(int left, int middle, int right)
 void PmergeMe::_mergeSortDeque(int left, int right)
 {
 	if (left < right) {
-		if (right - left + 1 <= 4) {
+		if (right - left + 1 <= 5) {
 			this->_insertDeque(left, right);
 		}
 		else {
