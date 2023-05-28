@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 12:43:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/27 20:51:16 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 11:15:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 
 		print_args(ac, av);
 		PmergeMe.sortVector();
+		PmergeMe.sortDeque();
 	}
 	catch (std::exception &e){
 		std::cout << "Error: " << e.what() << "." << std::endl;
