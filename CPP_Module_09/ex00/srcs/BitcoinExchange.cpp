@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 21:01:20 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/28 21:04:16 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,9 @@ void BitcoinExchange::_parseDatabase(void)
 				throw std::runtime_error("data.csv contains invalid values");
 			}
 			this->_database[date] = std::strtof(value.c_str(), NULL);
+			if (errno == ERANGE) {
+				throw std::runtime_error("data.csv contains invalid values");
+			}
 		}
 		else {
 			throw std::runtime_error("invalid data.csv file format");
