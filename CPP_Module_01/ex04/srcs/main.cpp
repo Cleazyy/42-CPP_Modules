@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 10:38:12 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 16:57:26 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:13:35 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	main(int ac, char **av)
 {
-	if (ac != 4)
-	{
+	if (ac != 4) {
 		std::cout << "Error: wrong number of args." << std::endl;
 		return (1);
 	}
@@ -29,5 +28,6 @@ int	main(int ac, char **av)
 	File.replace(s1, s2);
 	if (File.create() != 0)
 		return (1);
+
 	return (0);
 }
