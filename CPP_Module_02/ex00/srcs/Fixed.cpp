@@ -6,27 +6,28 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/28 17:35:19 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:26:08 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/* Constructor */
+/* ************************************************************************** */
+/*                               Canonical form                               */
+/* ************************************************************************** */
+
 Fixed::Fixed(void) : _fixed(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-/* Copy constructor */
-Fixed::Fixed(const Fixed& rhs)
+Fixed::Fixed(const Fixed &rhs)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-/* Assignment operator */
-Fixed&	Fixed::operator=(const Fixed& rhs)
+Fixed &Fixed::operator=(const Fixed& rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -34,11 +35,14 @@ Fixed&	Fixed::operator=(const Fixed& rhs)
 	return (*this);
 }
 
-/* Destructor */
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                          Public Member functions                           */
+/* ************************************************************************** */
 
 int	Fixed::getRawBits(void) const
 {

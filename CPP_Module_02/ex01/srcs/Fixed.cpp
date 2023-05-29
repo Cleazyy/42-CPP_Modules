@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:54 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/31 07:29:35 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:29:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ Fixed::Fixed(const float nb)
 	this->_fixed = roundf(nb * (1 << Fixed::_bits));
 }
 
-Fixed::Fixed(const Fixed& rhs)
+Fixed::Fixed(const Fixed &rhs)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-Fixed&	Fixed::operator=(const Fixed& rhs)
+Fixed &Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -53,7 +53,7 @@ Fixed::~Fixed(void)
 }
 
 /* ************************************************************************** */
-/*                              Member functions                              */
+/*                          Public Member functions                           */
 /* ************************************************************************** */
 
 int	Fixed::getRawBits(void) const
@@ -61,26 +61,26 @@ int	Fixed::getRawBits(void) const
 	return (this->_fixed);
 }
 
-void	Fixed::setRawBits(int const raw)
+void Fixed::setRawBits(int const raw)
 {
 	this->_fixed = raw;
 }
 
-float	Fixed::toFloat(void) const
+float Fixed::toFloat(void) const
 {
 	return ((float)this->_fixed / (1 << Fixed::_bits));
 }
 
-int	Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
 	return (this->_fixed >> Fixed::_bits);
 }
 
 /* ************************************************************************** */
-/*                                   Other                                    */
+/*                             Operators Overloads                            */
 /* ************************************************************************** */
 
-std::ostream&	operator<<(std::ostream& o, const Fixed& rhs)
+std::ostream &operator<<(std::ostream &o, const Fixed &rhs)
 {
 	o << rhs.toFloat();
 	return (o);

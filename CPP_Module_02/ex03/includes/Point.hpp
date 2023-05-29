@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:38:19 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/04 19:39:30 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:39:02 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,18 @@
 class Point
 {
 	private:
-		const Fixed	_x;
-		const Fixed	_y;
+		const Fixed _x;
+		const Fixed _y;
 
 	public:
-		/* Canonical form */
 		Point(void);
 		Point(const float x, const float y);
-		Point(const Point& rhs);
-		Point& operator=(const Point& rhs);
+		Point(const Point &rhs);
+		Point &operator=(const Point &rhs);
 		~Point(void);
 
-		/* Member functions */
-		Fixed	getX(void) const;
-		Fixed	getY(void) const;
+		Fixed getX(void) const;
+		Fixed getY(void) const;
 };
 
 #endif

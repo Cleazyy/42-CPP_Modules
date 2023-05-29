@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 11:49:52 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/04 19:38:24 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:25:40 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 class Fixed
 {
 	private:
-		int					_fixed;
-		static const int	_bits = 8;
+		int _fixed;
+		static const int _bits = 8;
 
 	public:
 		Fixed(void);
-		Fixed(const Fixed& rhs);
-		Fixed& operator=(const Fixed& rhs);
+		Fixed(const Fixed &rhs);
+		Fixed &operator=(const Fixed &rhs);
 		~Fixed(void);
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 };
 
 #endif

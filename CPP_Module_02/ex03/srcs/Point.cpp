@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 07:38:15 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/30 19:19:28 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:41:54 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ Point::Point(void) : _x(0), _y(0) {}
 
 Point::Point(const float x, const float y) : _x(x), _y(y) {}
 
-Point::Point(const Point& rhs) : _x(rhs._x), _y(rhs._y) {}
+Point::Point(const Point &rhs) : _x(rhs._x), _y(rhs._y) {}
 
-Point&	Point::operator=(const Point& rhs)
+Point &Point::operator=(const Point &rhs)
 {
 	if (this != &rhs)
 		const_cast<Fixed&>(this->_x) = rhs.getX();
@@ -33,15 +33,15 @@ Point&	Point::operator=(const Point& rhs)
 Point::~Point(void) {}
 
 /* ************************************************************************** */
-/*                              Member functions                              */
+/*                          Public Member functions                           */
 /* ************************************************************************** */
 
-Fixed	Point::getX(void) const
+Fixed Point::getX(void) const
 {
 	return (this->_x);
 }
 
-Fixed	Point::getY(void) const
+Fixed Point::getY(void) const
 {
 	return (this->_y);
 }
