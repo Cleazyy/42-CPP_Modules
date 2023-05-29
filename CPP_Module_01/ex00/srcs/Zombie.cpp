@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:05:14 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/29 09:03:55 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:05:54 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Zombie::~Zombie(void)
 	std::cout << "\033[1;31m" << this->_name << " has been destroyed." << "\033[0m" << std::endl;
 }
 
-void	Zombie::announce(void)
+void Zombie::announce(void)
 {
 	std::cout << "\033[1;33m" << this->_name << ": BraiiiiiiinnnzzzZ..." << "\033[0m" << std::endl;
 }
