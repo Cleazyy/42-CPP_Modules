@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:12:55 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 16:15:44 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:16:56 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@
 class Harl
 {
 	private:
-		void	_debug(void);
-		void	_info(void);
-		void	_warning(void);
-		void	_error(void);
+		void _debug(void);
+		void _info(void);
+		void _warning(void);
+		void _error(void);
 
 	public:
 		Harl(void);
 		~Harl(void);
-		void	complain(std::string level);
+
+		void complain(std::string level);
 };
 
 #endif
