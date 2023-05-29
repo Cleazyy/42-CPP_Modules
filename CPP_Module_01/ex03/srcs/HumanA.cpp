@@ -6,26 +6,21 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 20:52:50 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/25 17:20:23 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:09:18 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon)
-{
-	return ;
-}
+HumanA::HumanA(std::string name, Weapon& weapon) : _name(name), _weapon(weapon) {}
 
-HumanA::~HumanA(void)
-{
-	return ;
-}
+HumanA::~HumanA(void) {}
 
 void	HumanA::attack(void)
 {
-	if (this->_weapon.getType() != "")
+	if (this->_weapon.getType() != "") {
 	    std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
-	else
+	} else {
 		std::cout << this->_name << " attacks with his fists" << std::endl;
+	}
 }
