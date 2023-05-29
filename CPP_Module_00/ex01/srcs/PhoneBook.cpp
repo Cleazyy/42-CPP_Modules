@@ -6,31 +6,19 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:12:02 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/22 08:54:47 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:00:06 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
-{
-	return ;
-}
+PhoneBook::PhoneBook(void) {}
 
-PhoneBook::~PhoneBook(void)
-{
-	return ;
-}
+PhoneBook::~PhoneBook(void) {}
 
-void	PhoneBook::addContact(void)
-{
-	static int index = 0;
-
-	_contact[index].getSettings();
-	index++;
-	if (index == 8)
-		index = 0;
-}
+/* ************************************************************************** */
+/*                          Private Member functions                          */
+/* ************************************************************************** */
 
 void	PhoneBook::_printHeader(void)
 {
@@ -45,51 +33,58 @@ void	PhoneBook::_printHeader(void)
 
 void	PhoneBook::_printList(void)
 {
-	_printHeader();
-	for (int index = 0; index < 8; index++)
-		_contact[index].printElementList(index);
+	this->_printHeader();
+	for (int index = 0; index < 8; index++) {
+		this->_contact[index].printElementList(index);
+	}
 }
 
-bool	PhoneBook::_inputOnlyDigits(std::string input)
+bool	PhoneBook::_inputOnlyDigits(const std::string &str)
 {
-	bool onlyDigits;
-
-	onlyDigits = true;
-	for (size_t i = 0; i < input.length(); i++)
-	{
-		if (!isdigit(input[i]))
-		{
-			onlyDigits = false;
-			break ;
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!std::isdigit(str[i])) {
+			return (false);
 		}
 	}
-	return (onlyDigits);
+	return (true);
+}
+
+/* ************************************************************************** */
+/*                          Public Member functions                           */
+/* ************************************************************************** */
+
+void	PhoneBook::addContact(void)
+{
+	static int index = 0;
+
+	this->_contact[index].getSettings();
+	index++;
+	if (index == 8) {
+		index = 0;
+	}
 }
 
 void	PhoneBook::searchContact(void)
 {
 	std::string input;
-	int			index;
+	int index;
 
-	_printList();
+	this->_printList();
 	while (1)
 	{
 		std::cout << MSG_SEARCH << "Enter contact index: ";
 		std::getline(std::cin, input);
-		if (input.empty() || !_inputOnlyDigits(input))
-		{
+		if (input.empty() || this->_inputOnlyDigits(input) == false) {
 			std::cout << MSG_ERROR << "Please enter a valid number." << std::endl;
 			continue ;
 		}
 		index = std::atoi(input.c_str());
-		if (index < 0 || index > 7)
-		{
+		if (index < 0 || index > 7) {
 			std::cout << MSG_ERROR << "Pleaser enter an index between 0 and 7." << std::endl;
 			continue ;
 		}
-		else
-		{
-			_contact[index].printContact(index);
+		else {
+			this->_contact[index].printContact(index);
 			break ;
 		}
 	}

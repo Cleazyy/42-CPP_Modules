@@ -6,78 +6,52 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:15:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/22 08:49:09 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 08:59:03 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-Contact::Contact(void)
+/* ************************************************************************** */
+/*                          Constructor & Destructor                          */
+/* ************************************************************************** */
+
+Contact::Contact(void) {}
+
+Contact::~Contact(void) {}
+
+/* ************************************************************************** */
+/*                          Private Member functions                          */
+/* ************************************************************************** */
+
+void Contact::_init(void)
 {
-	return ;
+	this->_firstName = "";
+	this->_lastName = "";
+	this->_nickName = "";
+	this->_phoneNumber = "";
+	this->_darkestSecret = "";
 }
 
-Contact::~Contact(void)
+bool Contact::_isPhoneNumber(const std::string &str)
 {
-	return ;
-}
-
-void	Contact::_init(void)
-{
-	_firstName = "";
-	_lastName = "";
-	_nickName = "";
-	_phoneNumber = "";
-	_darkestSecret = "";
-}
-
-bool		Contact::_isPhoneNumber(std::string phoneNumber)
-{
-	bool onlyDigits;
-
-	onlyDigits = true;
-	for (size_t i = 0; i < phoneNumber.length(); i++)
-	{
-		if (!isdigit(phoneNumber[i]))
-		{
-			onlyDigits = false;
-			break ;
+	for (size_t i = 0; i < str.length(); i++) {
+		if (!std::isdigit(str[i])) {
+			return (false);
 		}
 	}
-	return (onlyDigits);
+	return (true);
 }
 
-void	Contact::getSettings(void)
+bool Contact::_isExist(void)
 {
-	_init();
-	while (_firstName.empty())
-	{
-		std::cout << MSG_ADD << "First name: ";
-		std::getline(std::cin, _firstName);
+	if (this->_firstName.empty() || this->_lastName.empty() || this->_nickName.empty() || this->_phoneNumber.empty() || this->_darkestSecret.empty()) {
+		return (false);
 	}
-	while (_lastName.empty())
-	{
-		std::cout << MSG_ADD << "Last name: ";
-		std::getline(std::cin, _lastName);
-	}
-	while (_nickName.empty())
-	{
-		std::cout << MSG_ADD << "Nickname: ";
-		std::getline(std::cin, _nickName);
-	}
-	while (_phoneNumber.empty() || !_isPhoneNumber(_phoneNumber))
-	{
-		std::cout << MSG_ADD << "Phone number: ";
-		std::getline(std::cin, _phoneNumber);
-	}
-	while (_darkestSecret.empty())
-	{
-		std::cout << MSG_ADD << "Darkest secret: ";
-		std::getline(std::cin, _darkestSecret);
-	}
+	return (true);
 }
 
-std::string	Contact::_resizeString(std::string str)
+std::string Contact::_resizeString(const std::string &str)
 {
 	std::string res;
 
@@ -91,29 +65,63 @@ std::string	Contact::_resizeString(std::string str)
 	return (res);
 }
 
-void	Contact::printElementList(int index)
+/* ************************************************************************** */
+/*                          Public Member functions                           */
+/* ************************************************************************** */
+
+void Contact::getSettings(void)
 {
-	if (_firstName.empty() || _lastName.empty() || _nickName.empty())
+	this->_init();
+	while (this->_firstName.empty())
+	{
+		std::cout << MSG_ADD << "First name: ";
+		std::getline(std::cin, this->_firstName);
+	}
+	while (this->_lastName.empty())
+	{
+		std::cout << MSG_ADD << "Last name: ";
+		std::getline(std::cin, this->_lastName);
+	}
+	while (this->_nickName.empty())
+	{
+		std::cout << MSG_ADD << "Nickname: ";
+		std::getline(std::cin, this->_nickName);
+	}
+	while (this->_phoneNumber.empty() || this->_isPhoneNumber(this->_phoneNumber) == false)
+	{
+		std::cout << MSG_ADD << "Phone number: ";
+		std::getline(std::cin, this->_phoneNumber);
+	}
+	while (this->_darkestSecret.empty())
+	{
+		std::cout << MSG_ADD << "Darkest secret: ";
+		std::getline(std::cin, this->_darkestSecret);
+	}
+}
+
+void Contact::printElementList(int index)
+{
+	if (this->_isExist() == false)
 		return ;
 	std::cout << "|" << std::setw(10) << index;
-	std::cout << "|" << std::setw(10) << _resizeString(_firstName);
-	std::cout << "|" << std::setw(10) << _resizeString(_lastName);
-	std::cout << "|" << std::setw(10) << _resizeString(_nickName);
+	std::cout << "|" << std::setw(10) << this->_resizeString(this->_firstName);
+	std::cout << "|" << std::setw(10) << this->_resizeString(this->_lastName);
+	std::cout << "|" << std::setw(10) << this->_resizeString(this->_nickName);
 	std::cout << "|" << std::endl;
 	std::cout << MSG_SEPARTOR << std::endl;
 }
 
-void	Contact::printContact(int index)
+void Contact::printContact(int index)
 {
-	if (_firstName.empty() || _lastName.empty() || _nickName.empty() || _phoneNumber.empty() || _darkestSecret.empty())
+	if (this->_isExist() == false)
 		std::cout << MSG_ERROR << "This contact has not been added yet." << std::endl;
 	else
 	{
 		std::cout << "Index : " << index << std::endl;
-		std::cout << "First name: " << _firstName << std::endl;
-		std::cout << "Last name: " << _lastName << std::endl;
-		std::cout << "Nickname: " << _nickName << std::endl;
-		std::cout << "Phone number: " << _phoneNumber << std::endl;
-		std::cout << "Darkest secret: " << _darkestSecret << std::endl;
+		std::cout << "First name: " << this->_firstName << std::endl;
+		std::cout << "Last name: " << this->_lastName << std::endl;
+		std::cout << "Nickname: " << this->_nickName << std::endl;
+		std::cout << "Phone number: " << this->_phoneNumber << std::endl;
+		std::cout << "Darkest secret: " << this->_darkestSecret << std::endl;
 	}
 }
