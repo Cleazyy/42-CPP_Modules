@@ -6,13 +6,13 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:05:12 by fluchten          #+#    #+#             */
-/*   Updated: 2023/03/24 08:23:14 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/29 09:03:59 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie*	newZombie(std::string name)
+Zombie *newZombie(std::string name)
 {
 	return (new Zombie(name));
 }
