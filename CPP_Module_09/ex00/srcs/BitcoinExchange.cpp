@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/28 21:04:16 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:34:15 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,6 @@ bool BitcoinExchange::_isValidValueFormat(std::string &str)
 	size_t i = 0;
 	int points_nb = 0;
 
-	if (str[0] == '+' || str[0] == '-')
-		i++;
 	while (i < str.length())
 	{
 		if (!std::isdigit(str[i]) && str[i] != '.')
@@ -141,6 +139,10 @@ float BitcoinExchange::_parseValue(std::string &str)
 		std::cout << "Error: empty number." << std::endl;
 		return (-1);
 	}
+	if (nb[0] == '-') {
+		std::cout << "Error: not a positive number." << std::endl;
+		return (-1);
+	}
 	if (this->_isValidValueFormat(nb) == false) {
 		std::cout << "Error: invalid number format." << std::endl;
 		return (-1);
@@ -148,10 +150,6 @@ float BitcoinExchange::_parseValue(std::string &str)
 	float value = std::strtof(nb.c_str(), NULL);
 	if (errno == ERANGE) {
 		std::cout << "Error: number overflow." << std::endl;
-		return (-1);
-	}
-	if (value < 0) {
-		std::cout << "Error: not a positive number." << std::endl;
 		return (-1);
 	}
 	if (value > 1000) {
