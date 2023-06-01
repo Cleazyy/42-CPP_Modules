@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 12:55:08 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:23:53 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int	main(void)
 {
-	ClapTrap	cortiz("Cortiz");
-	ClapTrap	murillo("Murillo");
-	ClapTrap	marwane("Marwane");
+	ClapTrap cortiz("Cortiz");
+	ClapTrap murillo("Murillo");
+	ClapTrap marwane("Marwane");
 
 	std::cout << std::endl;
 	std::cout << "\033[1;36m" << "[ ATTACK ]" << "\033[0m" << std::endl;
-	for (int i = 1; i <= 12; i++)
-	{
+	for (int i = 1; i <= 12; i++) {
 		std::cout << "[" << i << "] ";
 		cortiz.attack("Murillo");
 	}

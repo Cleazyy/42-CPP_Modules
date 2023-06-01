@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 17:16:46 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:39:29 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	DiamondTrap	cortiz("Cortiz");
-	DiamondTrap	murillo("Murillo");
-	DiamondTrap	marwane("Marwane");
+	DiamondTrap cortiz("Cortiz");
+	DiamondTrap murillo("Murillo");
+	DiamondTrap marwane("Marwane");
 
 	std::cout << std::endl;
 	std::cout << "\033[1;36m" << "[ ATTACK ]" << "\033[0m" << std::endl;

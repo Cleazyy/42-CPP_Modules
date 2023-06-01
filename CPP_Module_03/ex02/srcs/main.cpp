@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 14:12:30 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:33:56 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	FragTrap	cortiz("Cortiz");
-	FragTrap	murillo("Murillo");
-	FragTrap	marwane("Marwane");
+	FragTrap cortiz("Cortiz");
+	FragTrap murillo("Murillo");
+	FragTrap marwane("Marwane");
 
 	std::cout << std::endl;
 	std::cout << "\033[1;36m" << "[ ATTACK ]" << "\033[0m" << std::endl;

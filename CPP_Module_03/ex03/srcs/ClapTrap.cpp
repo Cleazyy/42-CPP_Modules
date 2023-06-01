@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:14:30 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 13:25:01 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:38:01 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 	std::cout << "ClapTrap's set name constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& rhs)
+ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	std::cout << "ClapTrap's copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-ClapTrap&	ClapTrap::operator=(const ClapTrap& rhs)
+ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "ClapTrap's copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -54,30 +54,28 @@ ClapTrap::~ClapTrap(void)
 /*                          Private Member functions                          */
 /* ************************************************************************** */
 
-void	ClapTrap::_displayStatus(std::string content)
+void ClapTrap::_displayStatus(std::string content)
 {
 	std::cout << "ClapTrap " << this->_name << " " << content << std::endl;
 }
 
-void	ClapTrap::_displayHealthEnergy(void)
+void ClapTrap::_displayHealthEnergy(void)
 {
 	std::cout << this->_name << " now has " << this->_hitPoints << " hit points and " << this->_energyPoints << " energy points!" << std::endl;
 }
 
-bool	ClapTrap::_isDead(void)
+bool ClapTrap::_isDead(void)
 {
-	if (this->_hitPoints <= 0)
-	{
+	if (this->_hitPoints <= 0) {
 		this->_displayStatus("is dead!");
 		return (true);
 	}
 	return (false);
 }
 
-bool	ClapTrap::_hasNoEnergy(void)
+bool ClapTrap::_hasNoEnergy(void)
 {
-	if (this->_energyPoints <= 0)
-	{
+	if (this->_energyPoints <= 0) {
 		this->_displayStatus("is out of energy points!");
 		return (true);
 	}
@@ -88,7 +86,7 @@ bool	ClapTrap::_hasNoEnergy(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	ClapTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string &target)
 {
 	if (this->_isDead() || this->_hasNoEnergy())
 		return ;
@@ -97,7 +95,7 @@ void	ClapTrap::attack(const std::string& target)
 	this->_displayHealthEnergy();
 }
 
-void	ClapTrap::takeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->_isDead())
 		return ;
@@ -108,7 +106,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	this->_displayHealthEnergy();
 }
 
-void	ClapTrap::beRepaired(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_isDead() || this->_hasNoEnergy())
 		return ;

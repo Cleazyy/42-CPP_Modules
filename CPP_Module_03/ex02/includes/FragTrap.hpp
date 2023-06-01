@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 13:03:13 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/04 19:39:53 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:31:45 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ class FragTrap : public ClapTrap
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);
-		FragTrap(const FragTrap& rhs);
-		FragTrap& operator=(const FragTrap& rhs);
+		FragTrap(const FragTrap &rhs);
+		FragTrap &operator=(const FragTrap &rhs);
 		~FragTrap(void);
 
-		void	highFivesGuys(void);
+		void highFivesGuys(void);
 };
 
 #endif

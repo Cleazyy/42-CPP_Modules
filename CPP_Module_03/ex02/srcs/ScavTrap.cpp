@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:14:30 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 13:41:59 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:33:30 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& rhs)
+ScavTrap::ScavTrap(const ScavTrap &rhs)
 {
 	std::cout << "ScavTrap's copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-ScavTrap&	ScavTrap::operator=(const ScavTrap& rhs)
+ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
 {
 	std::cout << "ScavTrap's copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -60,7 +60,7 @@ ScavTrap::~ScavTrap(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	ScavTrap::attack(const std::string& target)
+void ScavTrap::attack(const std::string& target)
 {
 	if (this->_isDead() || this->_hasNoEnergy())
 		return ;
@@ -69,7 +69,7 @@ void	ScavTrap::attack(const std::string& target)
 	this->_displayHealthEnergy();
 }
 
-void	ScavTrap::guardGate(void)
+void ScavTrap::guardGate(void)
 {
 	if (this->_isDead())
 		return ;

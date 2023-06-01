@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:14:30 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 16:50:51 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:38:58 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_attackDamage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap& rhs)
+FragTrap::FragTrap(const FragTrap &rhs)
 {
 	std::cout << "FragTrap's copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-FragTrap&	FragTrap::operator=(const FragTrap& rhs)
+FragTrap &FragTrap::operator=(const FragTrap &rhs)
 {
 	std::cout << "FragTrap's copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -60,10 +60,9 @@ FragTrap::~FragTrap(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
 	if (this->_isDead())
 		return ;
 	std::cout << "FragTrap " << this->_name << " asks for high five!" << std::endl;
 }
-

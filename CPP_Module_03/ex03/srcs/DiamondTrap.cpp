@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:27:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/01 17:11:21 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/01 19:38:29 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
 	this->_attackDamage = 30;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& rhs)
+DiamondTrap::DiamondTrap(const DiamondTrap &rhs)
 {
 	std::cout << "DiamondTrap's copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& rhs)
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 {
 	std::cout << "DiamondTrap's copy assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -64,7 +64,7 @@ DiamondTrap::~DiamondTrap(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	DiamondTrap::whoAmI(void)
+void DiamondTrap::whoAmI(void)
 {
 	if (this->_isDead())
 		return ;
