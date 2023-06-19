@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:35:41 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/05 07:56:18 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:28:29 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
 MateriaSource::MateriaSource(void)
 {
 	// std::cout << "MateriaSource default constructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_materias[i] = NULL;
+	}
 }
 
 MateriaSource::MateriaSource(const MateriaSource& rhs)
@@ -50,29 +51,33 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs)
 MateriaSource::~MateriaSource(void)
 {
 	// std::cout << "MateriaSource destructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
-		if (this->_materias[i])
+	for (int i = 0; i < 4; i++) {
+		if (this->_materias[i]) {
 			delete this->_materias[i];
+		}
+	}
 }
 
 /* ************************************************************************** */
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	MateriaSource::learnMateria(AMateria* m)
+void MateriaSource::learnMateria(AMateria *m)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		if (this->_materias[i] == NULL)
 		{
 			this->_materias[i] = m;
 			return ;
 		}
+	}
 }
 
-AMateria*   MateriaSource::createMateria(const std::string& type)
+AMateria *MateriaSource::createMateria(const std::string &type)
 {
-	for (int i = 0; i < 4; i++ )
+	for (int i = 0; i < 4; i++ ) {
 		if (this->_materias[i] && this->_materias[i]->getType() == type)
 			return (this->_materias[i]->clone());
+	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 10:19:29 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/05 07:54:00 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:23:17 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@
 Character::Character(void) : _name("Default")
 {
 	// std::cout << "Character default constructor called" << std::endl;
-	for (int i = 0; i < 4; i ++)
+	for (int i = 0; i < 4; i ++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(const std::string& name) : _name(name)
 {
 	// std::cout << "Character set name constructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		this->_inventory[i] = NULL;
+	}
 }
 
 Character::Character(const Character& rhs)
@@ -39,7 +41,7 @@ Character::Character(const Character& rhs)
 Character&	Character::operator=(const Character& rhs)
 {
 	// std::cout << "Character copy assignment operator called" << std::endl;
-	if (this != &rhs)
+	if (this != &rhs) {
 		this->_name = rhs._name;
 		for (int i = 0; i < 4; i++)
 		{
@@ -50,34 +52,38 @@ Character&	Character::operator=(const Character& rhs)
 			else
 				_inventory[i] = NULL;
 		}
+	}
 	return (*this);
 }
 
 Character::~Character()
 {
 	// std::cout << "AMateria destructor called" << std::endl;
-	for (int i = 0; i < 4; i++)
-		if (_inventory[i])
+	for (int i = 0; i < 4; i++) {
+		if (_inventory[i]) {
 			delete this->_inventory[i];
+		}
+	}
 }
 
 /* ************************************************************************** */
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-const std::string&	Character::getName() const
+const std::string &Character::getName(void) const
 {
 	return (this->_name);
 }
 
-void	Character::equip(AMateria* m)
+void Character::equip(AMateria* m)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
 		if (this->_inventory[i] == NULL)
 		{
 			this->_inventory[i] = m;
 			return ;
 		}
+	}
 	std::cout << "Error: " << this->_name << "'s inventory is full!" << std::endl;
 }
 

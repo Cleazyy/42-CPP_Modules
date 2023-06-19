@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 11:20:56 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 22:28:04 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:05:59 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Brain
 
 	public:
 		Brain(void);
-		Brain(const Brain& rhs);
-		Brain& operator=(const Brain& rhs);
+		Brain(const Brain &rhs);
+		Brain &operator=(const Brain &rhs);
 		~Brain(void);
 };
 

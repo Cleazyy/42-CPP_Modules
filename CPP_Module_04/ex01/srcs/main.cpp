@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 08:03:06 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:09:36 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int	main(void)
+int main(void)
 {
 	std::cout << "\033[1;32m" << "[ CONSTRUCTOR ]" << "\033[0m" << std::endl;
 	const Animal* cat = new Cat();

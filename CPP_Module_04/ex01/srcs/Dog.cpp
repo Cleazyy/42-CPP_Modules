@@ -23,18 +23,17 @@ Dog::Dog(void) : Animal()
 	this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog& rhs)
+Dog::Dog(const Dog &rhs)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	this->_type = "Dog";
 	this->_brain = new Brain(*rhs._brain);
 }
 
-Dog&	Dog::operator=(const Dog& rhs)
+Dog &Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog copy assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
+	if (this != &rhs) {
 		this->_type = "Dog";
 		delete this->_brain;
 		this->_brain = new Brain(*rhs._brain);
@@ -52,7 +51,7 @@ Dog::~Dog(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	Dog::makeSound(void) const
+void Dog::makeSound(void) const
 {
 	std::cout << "Wouaf Wouaf!" << std::endl;
 }

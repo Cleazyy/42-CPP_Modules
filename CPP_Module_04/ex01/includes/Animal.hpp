@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 22:28:02 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:05:36 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 class Animal
 {
 	protected:
-		std::string	_type;
+		std::string _type;
 
 	public:
 		Animal(void);
-		Animal(const Animal& rhs);
-		Animal& operator=(const Animal& rhs);
+		Animal(const Animal &rhs);
+		Animal &operator=(const Animal &rhs);
 		virtual ~Animal(void);
 
-		std::string		getType(void) const;
-		virtual void	makeSound(void) const;
+		const std::string &getType(void) const;
+		virtual void makeSound(void) const;
 };
 
 #endif

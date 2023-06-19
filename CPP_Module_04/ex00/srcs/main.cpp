@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/02 15:01:26 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:01:54 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-void	animalTests(void)
+void animalTests(void)
 {
 	const Animal* base = new Animal();
 	const Animal* cat = new Cat();
@@ -41,7 +41,7 @@ void	animalTests(void)
 	delete dog;
 }
 
-void	wrongAnimalTests(void)
+void wrongAnimalTests(void)
 {
 	const WrongAnimal* wrongBase = new WrongAnimal();
 	const WrongAnimal* wrongCat = new WrongCat();
@@ -62,7 +62,7 @@ void	wrongAnimalTests(void)
 	delete wrongCat;
 }
 
-int	main(void)
+int main(void)
 {
 	std::cout << "\033[1;32m" << "[ ANIMAL ]" << "\033[0m" << std::endl;
 	animalTests();

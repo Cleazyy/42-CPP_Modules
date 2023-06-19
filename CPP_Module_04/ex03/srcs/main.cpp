@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 18:50:45 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/04 22:13:57 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:27:11 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-int main()
+int main(void)
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
@@ -75,5 +75,5 @@ int main()
     delete me;
     delete src;
 
-    return 0;
+    return (0);
 }

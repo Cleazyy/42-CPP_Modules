@@ -22,17 +22,18 @@ WrongCat::WrongCat(void) : WrongAnimal()
 	this->_type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat& rhs)
+WrongCat::WrongCat(const WrongCat &rhs)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	*this = rhs;
 }
 
-WrongCat&	WrongCat::operator=(const WrongCat& rhs)
+WrongCat &WrongCat::operator=(const WrongCat &rhs)
 {
 	std::cout << "WrongCat copy assignment operator called" << std::endl;
-	if (this != &rhs)
+	if (this != &rhs) {
 		this->_type = rhs._type;
+	}
 	return (*this);
 }
 
@@ -45,7 +46,7 @@ WrongCat::~WrongCat(void)
 /*                          Public Member functions                           */
 /* ************************************************************************** */
 
-void	WrongCat::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
 	std::cout << "Miaou Miaou!" << std::endl;
 }

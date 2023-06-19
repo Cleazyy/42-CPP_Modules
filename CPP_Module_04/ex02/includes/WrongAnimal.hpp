@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:03:37 by fluchten          #+#    #+#             */
-/*   Updated: 2023/04/03 11:34:21 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/19 10:13:13 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 class WrongAnimal
 {
 	protected:
-		std::string	_type;
+		std::string _type;
 
 	public:
 		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal& rhs);
-		WrongAnimal& operator=(const WrongAnimal& rhs);
+		WrongAnimal(const WrongAnimal &rhs);
+		WrongAnimal &operator=(const WrongAnimal &rhs);
 		virtual ~WrongAnimal(void);
 
-		std::string	getType(void) const;
-		void		makeSound(void) const;
+		const std::string &getType(void) const;
+		void makeSound(void) const;
 };
 
 #endif
