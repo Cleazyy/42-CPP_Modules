@@ -6,7 +6,7 @@
 /*   By: fluchten <fluchten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:40:03 by fluchten          #+#    #+#             */
-/*   Updated: 2023/05/23 19:46:04 by fluchten         ###   ########.fr       */
+/*   Updated: 2023/06/30 08:25:22 by fluchten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,15 @@ unsigned int Span::longestSpan(void) const
 	if (this->_numbers.size() <= 1)
 		throw std::runtime_error("Cannot find longest span");
 
-	std::pair<std::vector<int>::const_iterator, std::vector<int>::const_iterator> result;
-	result = std::minmax_element(this->_numbers.begin(), this->_numbers.end());
-	return (*result.second - *result.first);
+	int longest = 0;
+	for (std::vector<int>::size_type i = 1; i < this->_numbers.size(); i++) {
+		int span = std::abs(this->_numbers[i] - this->_numbers[i - 1]);
+		if (span > longest) {
+			longest = span;
+		}
+	}
+
+	return (longest);
 }
 
 /* ************************************************************************** */
